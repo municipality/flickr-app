@@ -1,0 +1,756 @@
+@import 'loadingmask';
+@import 'animate';
+
+$blue: rgba(52, 152, 219, 1);
+$barWidth: 1em;
+$fontfamily: Roboto, sans-serif;
+$barColor: #1c1c1f;
+$barIconSize : 30;
+$seasonsHeaderColor: rgb(235, 235, 235);
+$shadowColor: #d9d9d9;
+$listSize: 100%;
+
+@mixin transition($comp, $time) {
+    -webkit-transition: $comp $time ease-in-out; /* For Safari 3.1 to 6.0 */
+    -ms-transition: $comp $time ease-in-out;
+    -o-transition: $comp $time ease-in-out;
+    -moz-transition: $comp $time ease-in-out;
+    transition: $comp $time ease-in-out;
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value; /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: $value; /* IE 9 */
+        transform: $value; /* IE 10, Fx 16+, Op 12.1+ */
+        -o-transform: $value;
+        -moz-transform: $value;
+}
+
+@mixin box-shadow($value) {
+    box-shadow: $value;
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+}
+
+@mixin flexbox() {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+}
+
+@mixin flex($value) {
+    flex: $value;
+    -webkit-flex: $value;
+    -ms-flex: $value;
+    -moz-flex: $value;
+}
+
+@mixin center($which) {
+
+    @if $which == 'vertical' {
+        top: 50%;
+        @include transform(translate(0, -50%));
+    }
+    @if $which == 'horizontal' {
+        left: 50%;
+        @include transform(translate(-50%, 0));
+    }
+    @if $which == 'both' {
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+    }
+}
+
+
+
+// body {
+//     margin: 0;
+//     font-family: $fontfamily;
+// }
+//
+// h1, h2, h3, h4, h5, h6 {
+//     margin: 0;
+//     color: $blue;
+//     font-weight: 300;
+// }
+//
+// h1 {
+//
+// }
+//
+// app {
+//     display: block;
+// }
+//
+$barIconPadding: 1em;
+bar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: $barWidth;
+    background-color: $barColor;
+    padding: 0 1em;
+    .container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        .logo {
+            position: relative;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: $barIconPadding 0;
+
+            img {
+                width: 100%;
+                height: auto;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        .icon {
+            position: relative;
+            width: 80%;
+            height: $barWidth *.8;
+            margin: 1em auto;
+            opacity: .5;
+            padding-bottom: $barIconPadding;
+
+            &.active {
+                opacity: 1;
+            }
+
+            .icon-sym {
+                color: white;
+                font-size: $barIconSize;
+                margin: 0;
+                position: relative;
+                display: inline-block;
+                height: 80%;
+                left: 50%;
+                @include transform(translate(-50%, 0));
+                width:100%;
+            }
+
+            [class^="icon-"]:before, [class*=" icon-"]:before {
+                position: absolute;
+                @include center('both');
+            }
+
+
+
+            p {
+                display: none;
+                // color: white;
+                // position: relative;
+                // height: 20%;
+                // margin: 0;
+                // width: 100%;
+                // text-align: center;
+            }
+        }
+    }
+
+
+}
+
+.body-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: $barWidth + 2em;
+    height: 100%;
+}
+
+// .home {
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+//     background: url('../images/brian-blurred.jpg') no-repeat fixed center;
+//     background-size: cover;
+//     @include flexbox();
+//     flex-direction: row;
+//
+//     .icon-container {
+//         position: relative;
+//         @include flex(1);
+//         height: 100%;
+//
+//         .icon {
+//             width: 100%;
+//             height: auto;
+//             position: absolute;
+//             top: 0;
+//             bottom: 0;
+//             left: 0;
+//             right: 0;
+//             max-width: 20em;
+//             margin: auto;
+//         }
+//     }
+//
+//     .titles-container {
+//         @include flex(1);
+//         height: 100%;
+//         position: relative;
+//
+//
+//         .titles {
+//             position: absolute;
+//             @include center('vertical');
+//
+//             .blue {
+//                 background-color: rgba(52, 152, 219, .7);
+//                 color: white;
+//             }
+//
+//             .white {
+//                 background-color: rgba(255, 255, 255, .7);
+//                 color:  $blue;
+//             }
+//
+//             h1:hover {
+//                 @include transform(scale(1.2));
+//                 @include transition(all, .1s);
+//             }
+//         }
+//     }
+// }
+//
+.designs {
+    padding-bottom: 5em;
+
+    .intro {
+        width: 100%;
+        height: 20em;
+        background: url('../images/design-intro.jpg') no-repeat scroll right 0;
+    }
+
+    .container {
+        padding: 3em 1em 0 1em;
+        margin-bottom: 3em;
+        position: relative;
+        .title {
+            margin: 0 0 1em 0;
+        }
+
+        .description {
+            color: $blue;
+            padding-bottom: 2em;
+        }
+
+        .description::after {
+            content: '';
+            width: 50%;
+            height: 1px;
+            background: gray;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+        }
+
+
+    }
+    .projects-container {
+        display: table;
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        width: 70%;
+        .projects-row{
+            display: table-row;
+            .project {
+                display: table-row;
+                // padding: 0 .1em;
+
+                img {
+                    position: relative;
+                    @include center('horizontal');
+                    max-width: 15em;
+                    max-height: 15em;
+                    width: 100%;
+                }
+
+                p {
+                    color: $blue;
+                }
+            }
+        }
+
+    }
+
+}
+//
+
+// .fashion {
+//     display: table;
+//     width: 100%;
+//     height: 100%;
+//     .fashion-row {
+//         display: table-row;
+//     }
+//
+//     .seasons-container {
+//         height: 100%;
+//         width: $listSize;
+//         padding-right: 5px;
+//
+//         display: table-cell;
+//         vertical-align: top;
+//         .seasons {
+//             position: relative;
+//             @include box-shadow(4px 0 2px 1px $shadowColor);
+//             height: 100%;
+//             overflow: scroll;
+//             margin-right: 5px;
+//             width: 100%;
+//
+//
+//             .header {
+//                 position: relative;
+//                 padding-left: .5em;
+//                 height: 2em;
+//                 background-color: $seasonsHeaderColor;
+//                 h4 {
+//                     position: absolute;
+//                     @include center(vertical);
+//                 }
+//             }
+//
+//             .season {
+//                 padding-left: .5em;
+//                 height: 3em;
+//                 position: relative;
+//                 h3 {
+//                     @include center(vertical);
+//                     position: relative;
+//                 }
+//
+//                 &:hover {
+//                     cursor: pointer;
+//                 }
+//
+//                 &.active {
+//                     @include fadeIn(.2s);
+//                     background-color: $blue;
+//                     h1, h2, h3, h4, h5, h6 {
+//                         color: white;
+//                     }
+//                 }
+//             }
+//
+//             .season:after{
+//                 content:'';
+//                 width: 50%;
+//                 height: 1px;
+//                 background: gray;
+//                 position: absolute;
+//                 bottom: 0;
+//                 right: 0;
+//                 left: 0;
+//                 margin: auto;
+//
+//             }
+//         }
+//     }
+//
+//     // Router container for styles and presentation
+//     .styles-router-container {
+//         display: table-cell;
+//         height: 100%;
+//     }
+//
+//     styles {
+//         display: table;
+//         height: 100%;
+//         width: 100%;
+//     }
+//     .styles-container {
+//         height: 100%;
+//         width: $listSize;
+//         display: table-cell;
+//         padding-right: 5px;
+//         .styles {
+//             margin-right: 5px;
+//             width: 100%;
+//             @include box-shadow(4px 0 2px 1px $shadowColor);
+//             height: 100%;
+//             overflow: scroll;
+//
+//             .header {
+//                 position: relative;
+//                 padding-left: .5em;
+//                 height: 2em;
+//                 background-color: $seasonsHeaderColor;
+//                 h4 {
+//                     position: absolute;
+//                     @include center(vertical);
+//                 }
+//             }
+//
+//             .style {
+//                 padding-left: .5em;
+//                 height: 3em;
+//                 position: relative;
+//                 h3 {
+//                     @include center(vertical);
+//                     position: absolute;
+//                 }
+//
+//                 &:hover {
+//                     cursor: pointer;
+//                 }
+//
+//                 &.active {
+//                     @include fadeIn(.2s);
+//                     background-color: $blue;
+//                     h3 {
+//                         color: white;
+//                     }
+//                 }
+//             }
+//
+//             .style::after {
+//                 content:'';
+//                 width: 50%;
+//                 height: 1px;
+//                 background: gray;
+//                 position: absolute;
+//                 bottom: 0;
+//                 right: 0;
+//                 left: 0;
+//                 margin: auto;
+//             }
+//
+//         }
+//     }
+//
+//
+//     .presentation-router-container {
+//         display: table-cell;
+//         height: 100%;
+//         vertical-align: top;
+//     }
+//
+//     .presentation {
+//         height: 100%;
+//
+//         .presentation-header {
+//             display: none;
+//         }
+//
+//         &.summer2016losangeles {
+//             p {
+//                 margin: 0;
+//             }
+//
+//             .header {
+//                 position: relative;
+//             }
+//             .header::after {
+//                 content: '';
+//                 width: 50%;
+//                 height: 1px;
+//                 background: gray;
+//                 position: absolute;
+//                 bottom: 0;
+//                 right: 0;
+//                 left: 0;
+//                 margin: auto;
+//             }
+//
+//         }
+//     }
+//
+//
+//
+//
+// }
+//
+.blog {
+    position: relative;
+    padding : 0 1em;
+    padding-bottom: 5em;
+    .header {
+        width: 100%;
+        height: 2em;
+        margin: 3em 0 1em 0;
+        position: relative;
+
+    }
+
+    .header::after {
+        content: '';
+        width: 50%;
+        height: 1px;
+        background: gray;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    .entry {
+        position: relative;
+        margin-bottom: 3em;
+        .entry-header {
+            position: relative;
+            background-color: $blue;
+            height: auto;
+            h3 {
+                color: white;
+            }
+            .title {
+                display: block;
+                position: relative;
+                left: 1em;
+            }
+
+            .date {
+                display: block;
+                position: relative;
+                left: 1em;
+            }
+        }
+
+
+        .words {
+            padding: 0 2em 0 2em;
+        }
+    }
+
+}
+
+.adventures {
+    display: table;
+    width: 100%;
+    height: 100%;
+    .adventures-row {
+        display: table-row;
+    }
+
+    .seasons-container {
+        height: 100%;
+        width: $listSize;
+        padding-right: 5px;
+
+        display: table-cell;
+        vertical-align: top;
+        position: relative;
+        z-index: 1;
+        .seasons {
+            position: relative;
+            @include box-shadow(4px 0 2px 1px $shadowColor);
+            height: 100%;
+            overflow: scroll;
+            margin-right: 5px;
+            width: 100%;
+
+
+            .header {
+                position: relative;
+                padding-left: .5em;
+                height: 2em;
+                background-color: $seasonsHeaderColor;
+                h4 {
+                    position: absolute;
+                    @include center(vertical);
+                }
+            }
+
+            .season {
+                padding-left: .5em;
+                height: 3em;
+                position: relative;
+                h3 {
+                    @include center(vertical);
+                    position: absolute;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &.active {
+                    @include fadeIn(.2s);
+                    background-color: $blue;
+                    h3 {
+                        color: white;
+                    }
+                }
+            }
+
+            .season:after{
+                content:'';
+                width: 50%;
+                height: 1px;
+                background: gray;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                margin: auto;
+
+            }
+
+        }
+    }
+
+    // Router container for styles and presentation
+    .events-router-container {
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    events {
+        display: table;
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        z-index: 2;
+        position: relative;
+        @include fadeIn(.2s);
+    }
+    .events-container {
+        height: 100%;
+        width: $listSize;
+        display: table-cell;
+        padding-right: 5px;
+        position: absolute;
+
+        .events {
+            margin-right: 5px;
+            width: 100%;
+            @include box-shadow(4px 0 2px 1px $shadowColor);
+            height: 100%;
+            overflow: scroll;
+
+            .header {
+                position: relative;
+                padding-left: .5em;
+                height: 2em;
+                background-color: $seasonsHeaderColor;
+                h4 {
+                    position: absolute;
+                    @include center(vertical);
+                }
+            }
+
+            .event {
+                padding-left: .5em;
+                height: 3em;
+                position: relative;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &.active {
+                    @include fadeIn(.2s);
+                    background-color: $blue;
+                    h1, h2, h3, h4, h5, h6 {
+                        color: white;
+                    }
+                }
+
+                .event-name-container {
+                    position: absolute;
+                    @include center(vertical);
+                }
+
+            }
+
+            .event::after {
+                content:'';
+                width: 50%;
+                height: 1px;
+                background: gray;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                margin: auto;
+            }
+
+        }
+    }
+
+
+    .presentation-router-container {
+        display: table-cell;
+        height: 100%;
+        vertical-align: top;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .presentation {
+        height: 100%;
+        position: relative;
+        z-index: 3;
+        @include fadeIn(.2s);
+
+        .presentation-header {
+            display: none;
+        }
+
+        &.summer2016losangeles {
+            p {
+                margin: 0;
+            }
+
+            .header {
+                position: relative;
+            }
+            .header::after {
+                content: '';
+                width: 50%;
+                height: 1px;
+                background: gray;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                margin: auto;
+            }
+
+        }
+    }
+
+    summer2016losangeles {
+        display: block;
+        height: 100%;
+        width: 100%;
+        overflow: scroll;
+        position: relative;
+
+        .santa-monica {
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+        }
+    }
+
+
+}

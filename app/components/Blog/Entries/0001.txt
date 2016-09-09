@@ -1,0 +1,9 @@
+Building this Website
+June 25, 2016
+I've been working on this website for a good two weeks now. It's been a challenge designing these different websites, but it's been a very enjoyable experience thus far. I've never designed websites before, and thanks to my friends and their constructive feedback, I'm gradually getting the feel of website flow, spacing, and general guidelines to it. Special shoutout to them for helping me this far!
+Designing websites is much different from just programming... I've definitely underestimated its difficulty at the beginning. I've visited tens of thousands of different webpages throughout my life so far, but was never meticulous about the minute details on any page at all. After these past months of struggling to design my own site, I have a newfound appreciation to web designers.
+
+This website's objective is to display my many interests and hobbies. I've realized that as much as I wish to express them to people I wish to share my experiences with, it's better to show them rather than simply talk about it. A main focus is of course making it easily scalable: because I'm using Angular2, I'm using routing to easily append different interests into my application. As of right now, I have this blog, my different web designs, and fashion.
+My fashion route utilizes nested routing for URL convenience. I am currently contemplating on designs for my first style launch, and do random sketches here and there to get ideas flowing.
+One of my challenges of course is mobile CSS. It's pretty inconvenient, because I'm developing on a desktop, it's logically easier to just test on desktop before mobile. However, mobile-first is pretty common in industry. It's on the works, but building these websites has definitely improved my CSS. It's also given me an opportunity to pick up SCSS, which is much tidier than plain CSS.
+More updates to come! And hopefully my next entries won't just be about this website. Stay tuned!

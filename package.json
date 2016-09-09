@@ -1,5 +1,5 @@
 {
-  "name": "brian-homepage",
+  "name": "brianium",
   "version": "1.0.0",
   "scripts": {
     "start": "concurrently \"tsc -w\" \"node ./bin/www\" \"npm run watch-css\" \"npm run watch-mobile-css\"",
@@ -7,7 +7,8 @@
     "build-css": "node-sass --include-path scss scss/main.scss public/app/main.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "build-mobile-css": "node-sass --include-path scss scss/mobile.scss public/app/mobile.css",
-    "watch-mobile-css": "nodemon -e scss -x \"npm run build-mobile-css\""
+    "watch-mobile-css": "nodemon -e scss -x \"npm run build-mobile-css\"",
+    "typings": "typings"
   },
   "license": "ISC",
   "dependencies": {
@@ -22,6 +23,7 @@
     "@angular/router-deprecated": "2.0.0-rc.2",
     "@angular/upgrade": "2.0.0-rc.5",
     "body-parser": "~1.13.2",
+    "compression": "^1.6.2",
     "cookie-parser": "~1.3.5",
     "core-js": "^2.4.0",
     "debug": "~2.2.0",
@@ -42,5 +44,6 @@
     "nodemon": "^1.9.2",
     "typescript": "^1.8.10",
     "typings": "^0.6.8"
-  }
+  },
+  "repository": {}
 }

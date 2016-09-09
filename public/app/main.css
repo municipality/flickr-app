@@ -1,0 +1,869 @@
+/*loading mask*/
+#app-loading-mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1000; }
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: spin 2s ease-in-out infinite;
+  animation: spin 2s ease-in-out infinite; }
+
+.loading-tag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%); }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.fadeIn {
+  animation: fadein 0.5s;
+  -moz-animation: fadein 0.5s;
+  /* Firefox */
+  -webkit-animation: fadein 0.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 0.5s;
+  /* Opera */ }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.blurIn {
+  animation: blurIn 0.5s;
+  -moz-animation: blurIn 0.5s;
+  /* Firefox */
+  -webkit-animation: blurIn 0.5s;
+  /* Safari and Chrome */
+  -o-animation: blurIn 0.5s;
+  /* Opera */ }
+
+@keyframes blurIn {
+  from {
+    -webkit-filter: blur(4px);
+    filter: blur(4px); }
+  to {
+    -webkit-filter: 0;
+    filter: 0; } }
+
+@-moz-keyframes blurIn {
+  /* Firefox */
+  from {
+    -webkit-filter: blur(4px);
+    filter: blur(4px); }
+  to {
+    -webkit-filter: 0;
+    filter: 0; } }
+
+@-webkit-keyframes blurIn {
+  /* Safari and Chrome */
+  from {
+    -webkit-filter: blur(4px);
+    filter: blur(4px); }
+  to {
+    -webkit-filter: 0;
+    filter: 0; } }
+
+@-o-keyframes blurIn {
+  /* Opera */
+  from {
+    -webkit-filter: blur(4px);
+    filter: blur(4px); }
+  to {
+    -webkit-filter: 0;
+    filter: 0; } }
+
+.white {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #3498db; }
+
+.blue {
+  background-color: rgba(52, 152, 219, 0.7);
+  color: white; }
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: #3498db;
+  font-weight: 300; }
+
+app {
+  display: block; }
+
+bar {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 7em;
+  background-color: #1c1c1f;
+  padding: 0 1em; }
+  bar .container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    bar .container .logo {
+      position: relative;
+      width: 100%;
+      top: 0;
+      left: 0; }
+      @media only screen and (min-device-width: 1201px) {
+        bar .container .logo:hover {
+          cursor: pointer; } }
+      bar .container .logo img {
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0; }
+    bar .container .icon {
+      position: relative;
+      width: 80%;
+      height: 5.6em;
+      margin: 1em auto;
+      opacity: .5; }
+      @media only screen and (min-device-width: 1201px) {
+        bar .container .icon:hover {
+          cursor: pointer;
+          opacity: 1; } }
+      bar .container .icon.active {
+        opacity: 1; }
+      bar .container .icon .icon-sym {
+        color: white;
+        font-size: 50;
+        margin: 0;
+        position: relative;
+        display: inline-block;
+        height: 80%;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+        -ms-transform: translate(-50%, 0);
+        /* IE 9 */
+        transform: translate(-50%, 0);
+        /* IE 10, Fx 16+, Op 12.1+ */
+        -o-transform: translate(-50%, 0);
+        -moz-transform: translate(-50%, 0);
+        width: 100%; }
+      bar .container .icon [class^="icon-"]:before, bar .container .icon [class*=" icon-"]:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+        -ms-transform: translate(-50%, -50%);
+        /* IE 9 */
+        transform: translate(-50%, -50%);
+        /* IE 10, Fx 16+, Op 12.1+ */
+        -o-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%); }
+      bar .container .icon p {
+        color: white;
+        position: relative;
+        height: 20%;
+        margin: 0;
+        width: 100%;
+        text-align: center; }
+
+.body-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 9em;
+  height: 100%; }
+
+.designs {
+  padding-bottom: 5em; }
+  .designs .intro {
+    width: 100%;
+    height: 20em;
+    background: url("../images/design-intro.jpg") no-repeat scroll right 0; }
+  .designs .container {
+    padding: 3em 1em 0 1em;
+    margin-bottom: 3em;
+    position: relative; }
+    .designs .container .title {
+      margin: 0 0 1em 0; }
+    .designs .container .description {
+      color: #3498db;
+      padding-bottom: 2em; }
+    .designs .container .description::after {
+      content: '';
+      width: 50%;
+      height: 1px;
+      background: gray;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto; }
+  .designs .projects-container {
+    display: table;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 70%; }
+    .designs .projects-container .projects-row {
+      display: table-row; }
+      .designs .projects-container .projects-row .project {
+        display: table-cell;
+        padding: 0 .1em; }
+        .designs .projects-container .projects-row .project img {
+          position: relative;
+          left: 50%;
+          -webkit-transform: translate(-50%, 0);
+          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+          -ms-transform: translate(-50%, 0);
+          /* IE 9 */
+          transform: translate(-50%, 0);
+          /* IE 10, Fx 16+, Op 12.1+ */
+          -o-transform: translate(-50%, 0);
+          -moz-transform: translate(-50%, 0);
+          max-width: 15em;
+          max-height: 15em;
+          width: 100%; }
+        .designs .projects-container .projects-row .project p {
+          color: #3498db; }
+
+.fashion {
+  display: table;
+  width: 100%;
+  height: 100%; }
+  .fashion .fashion-row {
+    display: table-row; }
+  .fashion .seasons-container {
+    height: 100%;
+    width: 15em;
+    padding-right: 5px;
+    display: table-cell;
+    vertical-align: top; }
+    .fashion .seasons-container .seasons {
+      position: relative;
+      box-shadow: 4px 0 2px 1px #d9d9d9;
+      -webkit-box-shadow: 4px 0 2px 1px #d9d9d9;
+      -moz-box-shadow: 4px 0 2px 1px #d9d9d9;
+      height: 100%;
+      overflow: scroll;
+      margin-right: 5px;
+      width: 100%; }
+      .fashion .seasons-container .seasons .header {
+        position: relative;
+        padding-left: .5em;
+        height: 2em;
+        background-color: #ebebeb; }
+        .fashion .seasons-container .seasons .header h4 {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+          -ms-transform: translate(0, -50%);
+          /* IE 9 */
+          transform: translate(0, -50%);
+          /* IE 10, Fx 16+, Op 12.1+ */
+          -o-transform: translate(0, -50%);
+          -moz-transform: translate(0, -50%); }
+      .fashion .seasons-container .seasons .season {
+        padding-left: .5em;
+        height: 3em;
+        position: relative; }
+        .fashion .seasons-container .seasons .season h3 {
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+          -ms-transform: translate(0, -50%);
+          /* IE 9 */
+          transform: translate(0, -50%);
+          /* IE 10, Fx 16+, Op 12.1+ */
+          -o-transform: translate(0, -50%);
+          -moz-transform: translate(0, -50%);
+          position: relative; }
+        .fashion .seasons-container .seasons .season:hover {
+          cursor: pointer; }
+        .fashion .seasons-container .seasons .season.active {
+          animation: fadein 0.2s;
+          -moz-animation: fadein 0.2s;
+          /* Firefox */
+          -webkit-animation: fadein 0.2s;
+          /* Safari and Chrome */
+          -o-animation: fadein 0.2s;
+          /* Opera */
+          background-color: #3498db; }
+          .fashion .seasons-container .seasons .season.active h1, .fashion .seasons-container .seasons .season.active h2, .fashion .seasons-container .seasons .season.active h3, .fashion .seasons-container .seasons .season.active h4, .fashion .seasons-container .seasons .season.active h5, .fashion .seasons-container .seasons .season.active h6 {
+            color: white; }
+      .fashion .seasons-container .seasons .season:after {
+        content: '';
+        width: 50%;
+        height: 1px;
+        background: gray;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto; }
+  .fashion .styles-router-container {
+    display: table-cell;
+    height: 100%; }
+  .fashion styles {
+    display: table;
+    height: 100%;
+    width: 100%; }
+  .fashion .styles-container {
+    height: 100%;
+    width: 15em;
+    display: table-cell;
+    padding-right: 5px; }
+    .fashion .styles-container .styles {
+      margin-right: 5px;
+      width: 100%;
+      box-shadow: 4px 0 2px 1px #d9d9d9;
+      -webkit-box-shadow: 4px 0 2px 1px #d9d9d9;
+      -moz-box-shadow: 4px 0 2px 1px #d9d9d9;
+      height: 100%;
+      overflow: scroll; }
+      .fashion .styles-container .styles .header {
+        position: relative;
+        padding-left: .5em;
+        height: 2em;
+        background-color: #ebebeb; }
+        .fashion .styles-container .styles .header h4 {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+          -ms-transform: translate(0, -50%);
+          /* IE 9 */
+          transform: translate(0, -50%);
+          /* IE 10, Fx 16+, Op 12.1+ */
+          -o-transform: translate(0, -50%);
+          -moz-transform: translate(0, -50%); }
+      .fashion .styles-container .styles .style {
+        padding-left: .5em;
+        height: 3em;
+        position: relative; }
+        .fashion .styles-container .styles .style h3 {
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+          -ms-transform: translate(0, -50%);
+          /* IE 9 */
+          transform: translate(0, -50%);
+          /* IE 10, Fx 16+, Op 12.1+ */
+          -o-transform: translate(0, -50%);
+          -moz-transform: translate(0, -50%);
+          position: absolute; }
+        .fashion .styles-container .styles .style:hover {
+          cursor: pointer; }
+        .fashion .styles-container .styles .style.active {
+          animation: fadein 0.2s;
+          -moz-animation: fadein 0.2s;
+          /* Firefox */
+          -webkit-animation: fadein 0.2s;
+          /* Safari and Chrome */
+          -o-animation: fadein 0.2s;
+          /* Opera */
+          background-color: #3498db; }
+          .fashion .styles-container .styles .style.active h3 {
+            color: white; }
+      .fashion .styles-container .styles .style::after {
+        content: '';
+        width: 50%;
+        height: 1px;
+        background: gray;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto; }
+  .fashion .presentation-router-container {
+    display: table-cell;
+    height: 100%;
+    vertical-align: top; }
+  .fashion .presentation {
+    height: 100%; }
+    .fashion .presentation .presentation-header {
+      display: none; }
+    .fashion .presentation.summer2016losangeles p {
+      margin: 0; }
+    .fashion .presentation.summer2016losangeles .header {
+      position: relative; }
+    .fashion .presentation.summer2016losangeles .header::after {
+      content: '';
+      width: 50%;
+      height: 1px;
+      background: gray;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto; }
+
+.blog {
+  position: relative;
+  padding: 0 1em;
+  padding-bottom: 5em; }
+  .blog .header {
+    width: 100%;
+    height: 2em;
+    margin: 3em 0 1em 0;
+    position: relative; }
+  .blog .header::after {
+    content: '';
+    width: 50%;
+    height: 1px;
+    background: gray;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto; }
+  .blog .entry {
+    position: relative;
+    margin-bottom: 3em; }
+    .blog .entry .entry-header {
+      position: relative;
+      background-color: #3498db;
+      height: 1.5em; }
+      .blog .entry .entry-header h3 {
+        color: white; }
+      .blog .entry .entry-header .title {
+        display: inline-block;
+        position: absolute;
+        left: 1em; }
+      .blog .entry .entry-header .date {
+        display: inline-block;
+        position: absolute;
+        right: 1em; }
+    .blog .entry .words {
+      padding: 0 2em 0 2em; }
+
+.adventures {
+  display: table;
+  width: 100%;
+  height: 100%; }
+  .adventures .adventures-row {
+    display: table-row; }
+  .adventures .seasons-container {
+    height: 100%;
+    width: 15em;
+    padding-right: 5px;
+    display: table-cell;
+    vertical-align: top; }
+    .adventures .seasons-container .seasons {
+      position: relative;
+      box-shadow: 4px 0 2px 1px #d9d9d9;
+      -webkit-box-shadow: 4px 0 2px 1px #d9d9d9;
+      -moz-box-shadow: 4px 0 2px 1px #d9d9d9;
+      height: 100%;
+      overflow: scroll;
+      margin-right: 5px;
+      width: 100%; }
+      .adventures .seasons-container .seasons .header {
+        position: relative;
+        padding-left: .5em;
+        height: 2em;
+        background-color: #ebebeb; }
+        .adventures .seasons-container .seasons .header h4 {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+          -ms-transform: translate(0, -50%);
+          /* IE 9 */
+          transform: translate(0, -50%);
+          /* IE 10, Fx 16+, Op 12.1+ */
+          -o-transform: translate(0, -50%);
+          -moz-transform: translate(0, -50%); }
+      .adventures .seasons-container .seasons .season {
+        padding-left: .5em;
+        height: 3em;
+        position: relative; }
+        .adventures .seasons-container .seasons .season h3 {
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+          -ms-transform: translate(0, -50%);
+          /* IE 9 */
+          transform: translate(0, -50%);
+          /* IE 10, Fx 16+, Op 12.1+ */
+          -o-transform: translate(0, -50%);
+          -moz-transform: translate(0, -50%);
+          position: absolute; }
+        .adventures .seasons-container .seasons .season:hover {
+          cursor: pointer; }
+        .adventures .seasons-container .seasons .season.active {
+          animation: fadein 0.2s;
+          -moz-animation: fadein 0.2s;
+          /* Firefox */
+          -webkit-animation: fadein 0.2s;
+          /* Safari and Chrome */
+          -o-animation: fadein 0.2s;
+          /* Opera */
+          background-color: #3498db; }
+          .adventures .seasons-container .seasons .season.active h3 {
+            color: white; }
+      .adventures .seasons-container .seasons .season:after {
+        content: '';
+        width: 50%;
+        height: 1px;
+        background: gray;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto; }
+  .adventures .events-router-container {
+    display: block;
+    height: 100%; }
+  .adventures events {
+    display: table;
+    height: 100%;
+    width: 100%; }
+  .adventures .events-container {
+    height: 100%;
+    width: 15em;
+    display: table-cell;
+    padding-right: 5px; }
+    .adventures .events-container .events {
+      margin-right: 5px;
+      width: 100%;
+      box-shadow: 4px 0 2px 1px #d9d9d9;
+      -webkit-box-shadow: 4px 0 2px 1px #d9d9d9;
+      -moz-box-shadow: 4px 0 2px 1px #d9d9d9;
+      height: 100%;
+      overflow: scroll; }
+      .adventures .events-container .events .header {
+        position: relative;
+        padding-left: .5em;
+        height: 2em;
+        background-color: #ebebeb; }
+        .adventures .events-container .events .header h4 {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+          -ms-transform: translate(0, -50%);
+          /* IE 9 */
+          transform: translate(0, -50%);
+          /* IE 10, Fx 16+, Op 12.1+ */
+          -o-transform: translate(0, -50%);
+          -moz-transform: translate(0, -50%); }
+      .adventures .events-container .events .event {
+        padding-left: .5em;
+        height: 3em;
+        position: relative; }
+        .adventures .events-container .events .event:hover {
+          cursor: pointer; }
+        .adventures .events-container .events .event.active {
+          animation: fadein 0.2s;
+          -moz-animation: fadein 0.2s;
+          /* Firefox */
+          -webkit-animation: fadein 0.2s;
+          /* Safari and Chrome */
+          -o-animation: fadein 0.2s;
+          /* Opera */
+          background-color: #3498db; }
+          .adventures .events-container .events .event.active h1, .adventures .events-container .events .event.active h2, .adventures .events-container .events .event.active h3, .adventures .events-container .events .event.active h4, .adventures .events-container .events .event.active h5, .adventures .events-container .events .event.active h6 {
+            color: white; }
+        .adventures .events-container .events .event .event-name-container {
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+          -ms-transform: translate(0, -50%);
+          /* IE 9 */
+          transform: translate(0, -50%);
+          /* IE 10, Fx 16+, Op 12.1+ */
+          -o-transform: translate(0, -50%);
+          -moz-transform: translate(0, -50%); }
+      .adventures .events-container .events .event::after {
+        content: '';
+        width: 50%;
+        height: 1px;
+        background: gray;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto; }
+  .adventures .presentation-router-container {
+    display: table-cell;
+    height: 100%;
+    vertical-align: top; }
+    .adventures .presentation-router-container photogallery .photo {
+      position: relative;
+      float: left;
+      width: 15em;
+      height: 15em;
+      margin: .2em;
+      cursor: pointer; }
+    .adventures .presentation-router-container photogallery .photo > img {
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+      -ms-transform: translate(0, -50%);
+      /* IE 9 */
+      transform: translate(0, -50%);
+      /* IE 10, Fx 16+, Op 12.1+ */
+      -o-transform: translate(0, -50%);
+      -moz-transform: translate(0, -50%);
+      width: 100%;
+      height: auto; }
+  .adventures .presentation {
+    height: 100%; }
+    .adventures .presentation .presentation-header {
+      display: none; }
+    .adventures .presentation.summer2016losangeles p {
+      margin: 0; }
+    .adventures .presentation.summer2016losangeles .header {
+      position: relative; }
+    .adventures .presentation.summer2016losangeles .header::after {
+      content: '';
+      width: 50%;
+      height: 1px;
+      background: gray;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto; }
+  .adventures summer2016losangeles {
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    position: relative; }
+    .adventures summer2016losangeles .santa-monica img {
+      width: 100%;
+      height: auto; }
+
+.home {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("../images/brian-blurred.jpg") no-repeat fixed center;
+  background-size: cover;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  flex-direction: row; }
+  .home h1 {
+    font-size: 48px; }
+  .home p {
+    font-size: 20px; }
+  .home .icon-container {
+    position: relative;
+    flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    -moz-flex: 1;
+    height: 100%; }
+    .home .icon-container .icon {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 20em;
+      margin: auto; }
+  .home .titles-container {
+    flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    -moz-flex: 1;
+    height: 100%;
+    position: relative; }
+    .home .titles-container .titles {
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+      -ms-transform: translate(0, -50%);
+      /* IE 9 */
+      transform: translate(0, -50%);
+      /* IE 10, Fx 16+, Op 12.1+ */
+      -o-transform: translate(0, -50%);
+      -moz-transform: translate(0, -50%); }
+      .home .titles-container .titles .blue {
+        background-color: rgba(52, 152, 219, 0.7);
+        color: white; }
+      .home .titles-container .titles .white {
+        background-color: rgba(255, 255, 255, 0.7);
+        color: #3498db; }
+      .home .titles-container .titles h1:hover {
+        -webkit-transform: scale(1.2);
+        /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+        -ms-transform: scale(1.2);
+        /* IE 9 */
+        transform: scale(1.2);
+        /* IE 10, Fx 16+, Op 12.1+ */
+        -o-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transition: all 0.1s ease-in-out;
+        /* For Safari 3.1 to 6.0 */
+        -ms-transition: all 0.1s ease-in-out;
+        -o-transition: all 0.1s ease-in-out;
+        -moz-transition: all 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out; }
+
+objectives h1 {
+  font-size: 48px; }
+
+objectives p {
+  font-size: 20px; }
+
+objectives .outro-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: black url("../images/outro1.jpg") center center no-repeat;
+  background-size: auto 100%; }
+  objectives .outro-container .title {
+    position: relative;
+    z-index: 3;
+    width: 20em;
+    margin: 5em auto; }
+
+objectives .desktop {
+  background-attachment: fixed;
+  -webkit-transition: background-image .5s ease-in-out;
+  /* For Safari 3.1 to 6.0 */
+  -ms-transition: background-image .5s ease-in-out;
+  -o-transition: background-image .5s ease-in-out;
+  -moz-transition: background-image .5s ease-in-out;
+  transition: background-image .5s ease-in-out;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%; }
+
+objectives .outro-panel {
+  width: 100%;
+  /*height: 550px;*/
+  min-height: 700px;
+  /*background-color: red;*/
+  position: relative; }
+
+objectives .outro-inner-panel > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 15em;
+  margin: auto;
+  height: 15em; }
+  objectives .outro-inner-panel > div h1 {
+    font-weight: 100;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0 .1em; }
+  objectives .outro-inner-panel > div p {
+    /*background-color: rgba(255, 255, 255, .7);*/
+    background-color: rgba(52, 152, 219, 0.7);
+    color: white;
+    padding: 0 .1em; }
+
+objectives .outro-inner-panel.left > div {
+  left: 33%; }
+
+objectives .outro-inner-panel.left h1, objectives .outro-inner-panel.left h2, objectives .outro-inner-panel.left h3, objectives .outro-inner-panel.left h4, objectives .outro-inner-panel.left h5, objectives .outro-inner-panel.left h6, objectives .outro-inner-panel.left p {
+  text-align: left; }
+
+objectives .outro-inner-panel.right > div {
+  right: 33%; }
+
+objectives .outro-inner-panel.right h1, objectives .outro-inner-panel.right h2, objectives .outro-inner-panel.right h3, objectives .outro-inner-panel.right h4, objectives .outro-inner-panel.right h5, objectives .outro-inner-panel.right h6, objectives .outro-inner-panel.right p {
+  text-align: right; }
+
+objectives .outro-inner-panel.center > div {
+  left: 0;
+  right: 0;
+  margin: auto; }
+
+objectives .outro-inner-panel.center h1, objectives .outro-inner-panel.center h2, objectives .outro-inner-panel.center h3, objectives .outro-inner-panel.center h4, objectives .outro-inner-panel.center h5, objectives .outro-inner-panel.center h6, objectives .outro-inner-panel.center p {
+  text-align: center; }
+
+.outro-image {
+  position: absolute;
+  -webkit-transition: opacity .5s linear;
+  /* For Safari 3.1 to 6.0 */
+  transition: opacity .5s linear;
+  width: 2500px; }
+
+.outro-image.moon {
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  -ms-transform: translate(-50%, 0);
+  /* IE 9 */
+  transform: translate(-50%, 0);
+  /* IE 10, Fx 16+, Op 12.1+ */
+  z-index: 1;
+  width: 30%;
+  height: auto;
+  bottom: 0; }
+
+objectives .outro-intro {
+  float: left;
+  width: 200px;
+  height: 100%;
+  /*background-color: blue;*/ }
+
+objectives .outro-inner-panel {
+  /*background-color: rgba(255, 255, 255, .7);*/ }
