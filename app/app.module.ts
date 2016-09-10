@@ -5,9 +5,11 @@ import {routing, appRoutingProviders} from './app.routing';
 import {Home} from './components/home';
 import {Blog} from './components/Blog/blog';
 import {HttpModule, JsonpModule} from '@angular/http';
+import {AdventuresModule} from './components/Adventures/adventures.module';
 
 @NgModule({
     imports: [
+        AdventuresModule,
         BrowserModule,
         routing,
         HttpModule,

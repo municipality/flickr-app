@@ -2,10 +2,10 @@ import { Routes, RouterModule }   from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {Blog} from './components/Blog/blog';
 import {Home} from './components/home';
+
 const appRoutes : Routes = [
     { path: 'home', component: Home },
     { path: 'blog', component: Blog },
-    //{ path: 'adventures', component: },
     { path: '**', component: Home} //Wildcard path
 ];
 
