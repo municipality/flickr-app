@@ -4,14 +4,15 @@ import {Blog} from './components/Blog/blog';
 import {Home} from './components/home';
 
 const appRoutes : Routes = [
-    { path: 'home', component: Home },
-    { path: 'blog', component: Blog },
-    { path: '**', component: Home} //Wildcard path
+    { path: 'home', component: Home},
+    { path: 'blog', component: Blog},
+    // { path: 'adventures', component: Adventures },
+    { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 export const appRoutingProviders : any[] = [];
 
-export const routing : ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const routing : ModuleWithProviders = RouterModule.forRoot([...appRoutes]);
 
 export const SidebarRoutes : any[] = [
     {

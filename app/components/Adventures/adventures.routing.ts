@@ -1,10 +1,21 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {Events, Adventure} from './adventures.component';
+import {Events, Adventures} from './adventures.component';
 
 const adventuresRoutes: Routes = [
-  { path: 'adventures', component: Adventure},
-  { path: 'adventures/:season', component: Events}
+    {
+        path: 'adventures', component: Adventures,
+        children : [
+            {path: ':season', component: Events},
+            {path: '', component: Events}
+        ]
+    }
+    // {
+    //     path: 'adventures/:season', component: Adventures,
+    //     children : [
+    //         {path: '', component: Events, outlet: 'eventsOutlet'}
+    //     ]
+    // }
 ];
 
 export const adventuresRouting: ModuleWithProviders = RouterModule.forChild(adventuresRoutes);

@@ -3,12 +3,13 @@ import {Http, Response, Headers, URLSearchParams} from '@angular/http';
 
 @Injectable()
 
-export class AdventureService {
+export class AdventuresService {
 
     cache : Object;
     constructor (private http:Http) {
         this.cache = {};
     }
+
 
     getPhotos(album) {
         var promise = new Promise((resolve, reject) => {

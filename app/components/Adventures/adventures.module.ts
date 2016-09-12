@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
 import {adventuresRouting} from './adventures.routing';
-import {Events, Adventure} from './adventures.component';
-import {AdventureService} from './adventures.service';
+import {Events, Adventures} from './adventures.component';
+import {AdventuresService} from './adventures.service';
 
 @NgModule ({
     imports: [
@@ -13,10 +13,10 @@ import {AdventureService} from './adventures.service';
     ],
     declarations: [
         Events,
-        Adventure
+        Adventures
     ],
     providers: [
-        AdventureService
+        AdventuresService
     ]
 })
 export class AdventuresModule {}
