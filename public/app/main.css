@@ -1,6 +1,6 @@
 /*loading mask*/
-#app-loading-mask {
-  position: fixed;
+.app-loading-mask {
+  position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1000; }
@@ -601,6 +601,7 @@ bar {
     display: table-cell;
     padding-right: 5px; }
     .adventures .events-container .events {
+      position: relative;
       margin-right: 5px;
       width: 100%;
       box-shadow: 4px 0 2px 1px #d9d9d9;

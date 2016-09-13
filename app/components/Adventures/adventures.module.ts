@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
 import {adventuresRouting} from './adventures.routing';
-import {Events, Adventures} from './adventures.component';
+import {Events, Adventures, PhotoGallery} from './adventures.component';
 import {AdventuresService} from './adventures.service';
 
 @NgModule ({
@@ -13,7 +13,8 @@ import {AdventuresService} from './adventures.service';
     ],
     declarations: [
         Events,
-        Adventures
+        Adventures,
+        PhotoGallery
     ],
     providers: [
         AdventuresService

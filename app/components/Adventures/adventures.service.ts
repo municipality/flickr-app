@@ -4,18 +4,23 @@ import {Http, Response, Headers, URLSearchParams} from '@angular/http';
 @Injectable()
 
 export class AdventuresService {
-    photoList : Object[];
+    albumList : Object[];
     photoCache : Object;
+    currentSeason : string;
     constructor (private http:Http) {
         this.photoCache = {};
     }
 
-    getPhotosList(season) {
-        var that = this;
+    setSeason (season) {
+        this.currentSeason = season;
+    }
 
+    getPhotosList() {
+        var season = this.currentSeason;
+        var that = this;
         var promise = new Promise((resolve, reject) => {
-            if(that.photoList !== undefined) {
-                let ret = that.photoList.filter(album => {
+            if(that.albumList !== undefined) {
+                let ret = that.albumList.filter(album => {
                     if(album["title"]["_content"].indexOf(`[${season}]`) !== -1) {
                         return true;
                     }
@@ -32,8 +37,8 @@ export class AdventuresService {
                     search: params
             }).map((response) => {
                if(response.status === 200) {
-                   that.photoList = response.json().photosets.photoset;
-                   return that.photoList;
+                   that.albumList = response.json().photosets.photoset;
+                   return that.albumList;
                }
                else {
                    throw new Error("No response from brianium.com");
@@ -73,21 +78,30 @@ export class AdventuresService {
     }
 
     getPhotosViaCache(album) {
-        if(this.photoCache[album] !== undefined) {
+        let title = `[${this.currentSeason}]${album}`;
+        if(this.photoCache[title] !== undefined) {
             console.warn("from cache");
-            return this.photoCache[album];
+            return this.photoCache[title];
         }
     }
 
     getPhotosViaAPI(album) {
+        let title = `[${this.currentSeason}]${album}`;
+        let albumId;
+        var that = this;
+        this.albumList.forEach((val, index, arr) => {
+            if(val["title"]["_content"] === title) {
+                albumId = val["id"];
+            }
+        });
         let params = new URLSearchParams();
-        params.set('album', album);
+        params.set('albumId', albumId);
         let url = document.location.origin + `/api/getadventurephotos`;
         return this.http.get(url, {
                     search: params
                 }).map((response) => {
                    if(response.status === 200) {
-                       this.photoCache[album] = response.json();
+                       that.photoCache[title] = response.json();
                        return response.json();
                    }
                    else {

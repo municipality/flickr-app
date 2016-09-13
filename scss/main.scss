@@ -620,6 +620,7 @@ $listSize: 15em;
         display: table-cell;
         padding-right: 5px;
         .events {
+            position: relative;
             margin-right: 5px;
             width: 100%;
             @include box-shadow(4px 0 2px 1px $shadowColor);
