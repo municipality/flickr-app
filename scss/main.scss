@@ -89,6 +89,36 @@ app {
     display: block;
 }
 
+header {
+    background-color: rgba(200, 200, 200, .5);
+    padding-top: 2.5em;
+    display: block;
+    position: relative;
+    .title {
+        width: 100%;
+        h1 {
+            text-align: center;
+        }
+    }
+
+    .navbar {
+        padding : 2em 0em;
+        position: relative;
+        //use display inline-block for width size to content
+        display: inline-block;
+        height: auto;
+        @include center(horizontal);
+        .link {
+            display: inline-block;
+            cursor: pointer;
+            margin: 0px 1em;
+            p {
+                font-weight: 900;
+            }
+        }
+    }
+}
+
 $barIconSize : 50;
 bar {
     display: block;
@@ -178,7 +208,7 @@ bar {
 }
 
 .body-container {
-    position: absolute;
+    // position: absolute;
     top: 0;
     right: 0;
     left: $barWidth + 2em;

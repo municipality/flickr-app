@@ -135,6 +135,36 @@ h1, h2, h3, h4, h5, h6 {
 app {
   display: block; }
 
+header {
+  background-color: rgba(200, 200, 200, 0.5);
+  padding-top: 2.5em;
+  display: block;
+  position: relative; }
+  header .title {
+    width: 100%; }
+    header .title h1 {
+      text-align: center; }
+  header .navbar {
+    padding: 2em 0em;
+    position: relative;
+    display: inline-block;
+    height: auto;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: translate(-50%, 0);
+    /* IE 9 */
+    transform: translate(-50%, 0);
+    /* IE 10, Fx 16+, Op 12.1+ */
+    -o-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0); }
+    header .navbar .link {
+      display: inline-block;
+      cursor: pointer;
+      margin: 0px 1em; }
+      header .navbar .link p {
+        font-weight: 900; }
+
 bar {
   display: block;
   position: fixed;
@@ -213,7 +243,6 @@ bar {
         text-align: center; }
 
 .body-container {
-  position: absolute;
   top: 0;
   right: 0;
   left: 9em;
