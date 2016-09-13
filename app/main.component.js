@@ -1,4 +1,4 @@
-System.register(['@angular/core', './components/sidebar.component'], function(exports_1, context_1) {
+System.register(['@angular/core', './components/sidebar.component', './components/header.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './components/sidebar.component'], function(ex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, sidebar_component_1;
+    var core_1, sidebar_component_1, header_component_1;
     var MainComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['@angular/core', './components/sidebar.component'], function(ex
             },
             function (sidebar_component_1_1) {
                 sidebar_component_1 = sidebar_component_1_1;
+            },
+            function (header_component_1_1) {
+                header_component_1 = header_component_1_1;
             }],
         execute: function() {
             MainComponent = (function () {
@@ -27,8 +30,8 @@ System.register(['@angular/core', './components/sidebar.component'], function(ex
                 MainComponent = __decorate([
                     core_1.Component({
                         selector: 'app',
-                        directives: [sidebar_component_1.Sidebar],
-                        template: "\n        <bar></bar>\n        <div class=\"body-container\">\n            <router-outlet></router-outlet>\n        </div>\n    "
+                        directives: [sidebar_component_1.Sidebar, header_component_1.Header],
+                        template: "\n        <header></header>\n        <div class=\"body-container\">\n            <router-outlet></router-outlet>\n        </div>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], MainComponent);
@@ -38,4 +41,4 @@ System.register(['@angular/core', './components/sidebar.component'], function(ex
         }
     }
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jb21wb25lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJtYWluLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztZQWFBO2dCQUFBO2dCQUVBLENBQUM7Z0JBWkQ7b0JBQUMsZ0JBQVMsQ0FBQzt3QkFDUCxRQUFRLEVBQUUsS0FBSzt3QkFDZixVQUFVLEVBQUUsQ0FBQywyQkFBTyxDQUFDO3dCQUNyQixRQUFRLEVBQUUsa0lBS1Q7cUJBQ0osQ0FBQzs7aUNBQUE7Z0JBR0Ysb0JBQUM7WUFBRCxDQUFDLEFBRkQsSUFFQztZQUZELHlDQUVDLENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0NvbXBvbmVudH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQge1NpZGViYXJ9IGZyb20gJy4vY29tcG9uZW50cy9zaWRlYmFyLmNvbXBvbmVudCc7XG5cbkBDb21wb25lbnQoe1xuICAgIHNlbGVjdG9yOiAnYXBwJyxcbiAgICBkaXJlY3RpdmVzOiBbU2lkZWJhcl0sXG4gICAgdGVtcGxhdGU6IGBcbiAgICAgICAgPGJhcj48L2Jhcj5cbiAgICAgICAgPGRpdiBjbGFzcz1cImJvZHktY29udGFpbmVyXCI+XG4gICAgICAgICAgICA8cm91dGVyLW91dGxldD48L3JvdXRlci1vdXRsZXQ+XG4gICAgICAgIDwvZGl2PlxuICAgIGBcbn0pXG5leHBvcnQgY2xhc3MgTWFpbkNvbXBvbmVudCB7XG5cbn1cbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jb21wb25lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJtYWluLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztZQWFBO2dCQUFBO2dCQUVBLENBQUM7Z0JBWkQ7b0JBQUMsZ0JBQVMsQ0FBQzt3QkFDUCxRQUFRLEVBQUUsS0FBSzt3QkFDZixVQUFVLEVBQUUsQ0FBQywyQkFBTyxFQUFFLHlCQUFNLENBQUM7d0JBQzdCLFFBQVEsRUFBRSx3SUFLVDtxQkFDSixDQUFDOztpQ0FBQTtnQkFHRixvQkFBQztZQUFELENBQUMsQUFGRCxJQUVDO1lBRkQseUNBRUMsQ0FBQSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7Q29tcG9uZW50fSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7U2lkZWJhcn0gZnJvbSAnLi9jb21wb25lbnRzL3NpZGViYXIuY29tcG9uZW50JztcbmltcG9ydCB7SGVhZGVyfSBmcm9tICcuL2NvbXBvbmVudHMvaGVhZGVyLmNvbXBvbmVudCc7XG5AQ29tcG9uZW50KHtcbiAgICBzZWxlY3RvcjogJ2FwcCcsXG4gICAgZGlyZWN0aXZlczogW1NpZGViYXIsIEhlYWRlcl0sXG4gICAgdGVtcGxhdGU6IGBcbiAgICAgICAgPGhlYWRlcj48L2hlYWRlcj5cbiAgICAgICAgPGRpdiBjbGFzcz1cImJvZHktY29udGFpbmVyXCI+XG4gICAgICAgICAgICA8cm91dGVyLW91dGxldD48L3JvdXRlci1vdXRsZXQ+XG4gICAgICAgIDwvZGl2PlxuICAgIGBcbn0pXG5leHBvcnQgY2xhc3MgTWFpbkNvbXBvbmVudCB7XG5cbn1cbiJdfQ==

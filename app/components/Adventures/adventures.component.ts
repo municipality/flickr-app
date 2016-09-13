@@ -10,10 +10,10 @@ import {AdventuresService} from './adventures.service';
             <div class="header">
                 <h4>Adventures</h4>
             </div>
-            <div class="event" *ngFor="let event of eventsObjects"
+            <div class="event" *ngFor="let event of eventsList"
             routerLinkedActive="active">
                 <div class="event-name-container">
-                    <h3>{{event["title"]["_content"]}}</h3>
+                    <h3>{{event}}</h3>
                     <!--<h5 *ngIf="adventure.dateEnd">{{adventure.dateStart}} - {{adventure.dateEnd}}</h5>
                     <h5 *ngIf="adventure.dateEnd == null">{{adventure.dateStart}}</h5>-->
                 </div>
@@ -30,6 +30,7 @@ export class Events implements OnInit, OnDestroy {
     season : string;
     seasonSubscribe : any;
     eventsObjects : Object[];
+    eventsList : string[];
 
     constructor (private route:ActivatedRoute,
                  private adventuresService : AdventuresService) {
@@ -41,10 +42,10 @@ export class Events implements OnInit, OnDestroy {
             this.season = params["season"];
             this.adventuresService.getPhotosList(this.season)
                 .then((list => {
+                    this.eventsList = [];
                     this.eventsObjects = list;
-                    debugger
                     this.eventsObjects.forEach((val, index, arr) => {
-                        arr[index]["title"]["_content"] = arr[index]["title"]["_content"].substring(this.season.length+2);
+                        this.eventsList.push(arr[index]["title"]["_content"].substring(this.season.length+2));
                     });
                 }).bind(this));
         });

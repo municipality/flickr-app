@@ -14,7 +14,6 @@ export class AdventuresService {
         var that = this;
 
         var promise = new Promise((resolve, reject) => {
-            debugger
             if(that.photoList !== undefined) {
                 let ret = that.photoList.filter(album => {
                     if(album["title"]["_content"].indexOf(`[${season}]`) !== -1) {

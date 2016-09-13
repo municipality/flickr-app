@@ -44,4 +44,27 @@ export const SidebarRoutes : any[] = [
         iconCls : 'icon-github'
     }
 
-]
+];
+
+export const HeaderRoutes : Object[] = [
+    {
+        name : "Home",
+        path : "/home",
+        iconCls: ''
+    },
+    {
+        name : "Adventures",
+        path : "/adventures",
+        iconCls : 'icon-adventure'
+    },
+    {
+        name : "Blog",
+        path : "/blog",
+        iconCls : 'icon-blog'
+    },
+    {
+        name : "Projects",
+        path : "/projects",
+        iconCls : 'icon-github'
+    }
+];
