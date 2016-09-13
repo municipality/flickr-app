@@ -1,19 +1,19 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {SeasonsVar} from './adventures.routing';
 import {Router, ActivatedRoute} from '@angular/router';
+import {AdventuresService} from './adventures.service';
 @Component({
     selector: 'events',
     template: `
-        <div class="events-container">
+        <div class="events-container fadeIn">
         <div class="events">
             <div class="header">
                 <h4>Adventures</h4>
             </div>
-            <div class="event" *ngFor="let adventure of listItems"
-            [routerLink]="[adventure.path, adventure.path]"
+            <div class="event" *ngFor="let event of eventsObjects"
             routerLinkedActive="active">
                 <div class="event-name-container">
-                    <h3>{{adventure.display}}</h3>
+                    <h3>{{event["title"]["_content"]}}</h3>
                     <!--<h5 *ngIf="adventure.dateEnd">{{adventure.dateStart}} - {{adventure.dateEnd}}</h5>
                     <h5 *ngIf="adventure.dateEnd == null">{{adventure.dateStart}}</h5>-->
                 </div>
@@ -29,15 +29,24 @@ export class Events implements OnInit, OnDestroy {
 
     season : string;
     seasonSubscribe : any;
+    eventsObjects : Object[];
 
-    constructor (private route:ActivatedRoute) {
+    constructor (private route:ActivatedRoute,
+                 private adventuresService : AdventuresService) {
 
     }
 
     ngOnInit () {
         this.seasonSubscribe = this.route.params.subscribe(params => {
             this.season = params["season"];
-            console.log(this.season);
+            this.adventuresService.getPhotosList(this.season)
+                .then((list => {
+                    this.eventsObjects = list;
+                    debugger
+                    this.eventsObjects.forEach((val, index, arr) => {
+                        arr[index]["title"]["_content"] = arr[index]["title"]["_content"].substring(this.season.length+2);
+                    });
+                }).bind(this));
         });
     }
 

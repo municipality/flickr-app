@@ -7,7 +7,7 @@ const adventuresRoutes: Routes = [
         path: 'adventures', component: Adventures,
         children : [
             {path: ':season', component: Events},
-            {path: '', component: Events}
+            {path: ''}
         ]
     }
     // {
