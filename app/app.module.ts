@@ -23,7 +23,7 @@ import {AdventuresModule} from './components/Adventures/adventures.module';
     providers: [
         appRoutingProviders
     ],
-    bootstrap: [MainComponent],
+    bootstrap: [MainComponent]
 })
 export class AppModule {
 }

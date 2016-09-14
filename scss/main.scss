@@ -1,5 +1,6 @@
 @import 'loadingmask';
 @import 'animate';
+@import 'loadingscreen';
 
 $blue: rgba(52, 152, 219, 1);
 $barWidth: 7em;
@@ -85,8 +86,14 @@ h1 {
 
 }
 
+.app-container {
+    width: 100%;
+    height: 100%;
+}
+
 app {
     display: block;
+    position: relative;
 }
 
 header {

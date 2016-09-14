@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, AfterViewInit} from '@angular/core';
 import {Sidebar} from './components/sidebar.component';
 import {Header} from './components/header.component';
 @Component({
@@ -11,6 +11,21 @@ import {Header} from './components/header.component';
         </div>
     `
 })
-export class MainComponent {
+export class MainComponent implements AfterViewInit {
+    loadingScreen : Element;
+    app;
+    ngAfterViewInit () {
+        this.loadingScreen = document.getElementsByClassName("loading-screen-container")[0];
+        this.app = document.getElementsByTagName('app')[0];
+        document.getElementById('spinner').addEventListener('click', e => {
+            this.moveScreen();
+        });
+    }
+
+    moveScreen () {
+        this.loadingScreen.classList.add("move");
+        this.app.classList.add("move");
+    }
+
 
 }

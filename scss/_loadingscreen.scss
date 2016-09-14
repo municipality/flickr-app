@@ -1,0 +1,45 @@
+$loadingHeight: 85%;
+$transitionTime: .3s;
+@mixin transition($comp, $time) {
+    -webkit-transition: $comp $time ease-in-out; /* For Safari 3.1 to 6.0 */
+    -ms-transition: $comp $time ease-in-out;
+    -o-transition: $comp $time ease-in-out;
+    -moz-transition: $comp $time ease-in-out;
+    transition: $comp $time ease-in-out;
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value; /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: $value; /* IE 9 */
+        transform: $value; /* IE 10, Fx 16+, Op 12.1+ */
+        -o-transform: $value;
+        -moz-transform: $value;
+}
+
+.loading-screen-container {
+    @include transition(all, $transitionTime);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .loading-screen {
+        width: 100%;
+        height: $loadingHeight;
+        background-color: green;
+    }
+
+    &.move {
+        @include transform(translateY(-100vh));
+    }
+
+    .spinner {
+        position: relative;
+        height: 100% - $loadingHeight;
+    }
+}
+
+app {
+    @include transition(all, @$transitionTime);
+    &.move {
+        @include transform(translateY(-100vh));
+    }
+}
