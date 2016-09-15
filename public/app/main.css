@@ -115,21 +115,70 @@
     -webkit-filter: 0;
     filter: 0; } }
 
+@keyframes closeLoadingScreen {
+  0% {
+    top: 0; }
+  100% {
+    top: -100vh; } }
+
+@keyframes highlight {
+  0% {
+    color: white; }
+  50% {
+    color: gray; }
+  100% {
+    color: white; } }
+
 .loading-screen-container {
-  -webkit-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
   /* For Safari 3.1 to 6.0 */
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   position: relative;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  background-color: green; }
   .loading-screen-container .loading-screen {
     width: 100%;
-    height: 85%;
-    background-color: green; }
+    height: 90vh; }
   .loading-screen-container.move {
+    animation-name: closeLoadingScreen;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards; }
+  .loading-screen-container .spinner {
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    bottom: 0;
+    left: 0; }
+    .loading-screen-container .spinner .icon-loading-down {
+      position: relative;
+      top: 50%;
+      transform: translate(0, -50%);
+      text-align: center;
+      font-size: 10vh;
+      animation-name: highlight;
+      animation-duration: 2s;
+      animation-iteration-count: infinite; }
+    .loading-screen-container .spinner.loaded:hover {
+      cursor: pointer;
+      background-color: rgba(250, 250, 250, 0.1); }
+
+app {
+  position: relative;
+  -webkit-transition: all 0.5s ease-in-out;
+  /* For Safari 3.1 to 6.0 */
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+  app.move {
     -webkit-transform: translateY(-100vh);
     /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
     -ms-transform: translateY(-100vh);
@@ -137,18 +186,20 @@
     transform: translateY(-100vh);
     /* IE 10, Fx 16+, Op 12.1+ */
     -o-transform: translateY(-100vh);
-    -moz-transform: translateY(-100vh); }
-  .loading-screen-container .spinner {
-    position: relative;
-    height: 15%; }
+    -moz-transform: translateY(-100vh);
+    position: relative; }
 
-app {
-  -webkit-transition: all 0.4s ease-in-out;
-  /* For Safari 3.1 to 6.0 */
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out; }
+.app-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh; }
+  .app-container.move {
+    position: absolute;
+    animation-name: closeLoadingScreen;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards; }
 
 .white {
   background-color: rgba(255, 255, 255, 0.7);
@@ -166,29 +217,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   color: #3498db;
   font-weight: 300; }
-
-.app-container {
-  width: 100%;
-  height: 100%; }
-
-app {
-  -webkit-transition: all 0.4s ease-in-out;
-  /* For Safari 3.1 to 6.0 */
-  -ms-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  display: block;
-  position: relative; }
-  app.move {
-    -webkit-transform: translateY(-100vh);
-    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-    -ms-transform: translateY(-100vh);
-    /* IE 9 */
-    transform: translateY(-100vh);
-    /* IE 10, Fx 16+, Op 12.1+ */
-    -o-transform: translateY(-100vh);
-    -moz-transform: translateY(-100vh); }
 
 header {
   background-color: rgba(200, 200, 200, 0.5);

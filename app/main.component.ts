@@ -14,17 +14,30 @@ import {Header} from './components/header.component';
 export class MainComponent implements AfterViewInit {
     loadingScreen : Element;
     app;
+
+
+    /**
+     *  Loading screen and app are in the same container for fluid movement
+     *  Used top animation rather than transform translate for non-fixed image offshifts
+     */
     ngAfterViewInit () {
         this.loadingScreen = document.getElementsByClassName("loading-screen-container")[0];
         this.app = document.getElementsByTagName('app')[0];
+        document.getElementById('spinner').innerHTML = `
+            <div class="icon-loading-down">
+
+            </div>
+        `;
+        document.getElementById('spinner').classList.add("loaded");
         document.getElementById('spinner').addEventListener('click', e => {
             this.moveScreen();
         });
+
+
     }
 
     moveScreen () {
-        this.loadingScreen.classList.add("move");
-        this.app.classList.add("move");
+        document.getElementsByClassName("app-container")[0].classList.add("move");
     }
 
 

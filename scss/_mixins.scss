@@ -1,0 +1,53 @@
+@mixin transition($comp, $time) {
+    -webkit-transition: $comp $time ease-in-out; /* For Safari 3.1 to 6.0 */
+    -ms-transition: $comp $time ease-in-out;
+    -o-transition: $comp $time ease-in-out;
+    -moz-transition: $comp $time ease-in-out;
+    transition: $comp $time ease-in-out;
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value; /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: $value; /* IE 9 */
+        transform: $value; /* IE 10, Fx 16+, Op 12.1+ */
+        -o-transform: $value;
+        -moz-transform: $value;
+}
+
+@mixin box-shadow($value) {
+    box-shadow: $value;
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+}
+
+@mixin flexbox() {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+}
+
+@mixin flex($value) {
+    flex: $value;
+    -webkit-flex: $value;
+    -ms-flex: $value;
+    -moz-flex: $value;
+}
+
+@mixin center($which) {
+
+    @if $which == 'vertical' {
+        top: 50%;
+        @include transform(translate(0, -50%));
+    }
+    @if $which == 'horizontal' {
+        left: 50%;
+        @include transform(translate(-50%, 0));
+    }
+    @if $which == 'both' {
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+    }
+}

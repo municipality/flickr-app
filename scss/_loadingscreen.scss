@@ -1,45 +1,94 @@
-$loadingHeight: 85%;
-$transitionTime: .3s;
-@mixin transition($comp, $time) {
-    -webkit-transition: $comp $time ease-in-out; /* For Safari 3.1 to 6.0 */
-    -ms-transition: $comp $time ease-in-out;
-    -o-transition: $comp $time ease-in-out;
-    -moz-transition: $comp $time ease-in-out;
-    transition: $comp $time ease-in-out;
+@import 'mixins';
+$loadingHeight: 10vh;
+$transitionTime: .5s;
+$highlightDuration: 2s;
+@keyframes closeLoadingScreen {
+    0% {
+        top : 0;
+    }
+    100%
+     {
+        // @include transform(translateY(-100vh));
+        top : -100vh;
+    }
 }
 
-@mixin transform($value) {
-    -webkit-transform: $value; /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-    -ms-transform: $value; /* IE 9 */
-        transform: $value; /* IE 10, Fx 16+, Op 12.1+ */
-        -o-transform: $value;
-        -moz-transform: $value;
+@keyframes highlight {
+    0% {
+        color: white;
+    }
+    50% {
+        color: gray;
+    }
+    100% {
+        color: white;
+    }
 }
 
 .loading-screen-container {
     @include transition(all, $transitionTime);
     position: relative;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background-color: green;
     .loading-screen {
         width: 100%;
-        height: $loadingHeight;
-        background-color: green;
+        height: 100vh - $loadingHeight;
     }
 
     &.move {
-        @include transform(translateY(-100vh));
+        animation-name: closeLoadingScreen;
+        animation-duration: $transitionTime;
+        -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+        animation-fill-mode: forwards;
     }
 
     .spinner {
         position: relative;
-        height: 100% - $loadingHeight;
+        width: 100%;
+        height: $loadingHeight;
+        bottom: 0;
+        left: 0;
+
+        .icon-loading-down {
+            position: relative;
+            top: 50%;
+            transform: translate(0, -50%);
+            text-align: center;
+            font-size: 10vh;
+            animation-name: highlight;
+            animation-duration: $highlightDuration;
+            animation-iteration-count: infinite;
+        }
+
+        &.loaded:hover {
+            cursor: pointer;
+            background-color: rgba(250, 250, 250, .1);
+        }
     }
 }
 
 app {
-    @include transition(all, @$transitionTime);
+    position: relative;
+    @include transition(all, $transitionTime);
     &.move {
         @include transform(translateY(-100vh));
+        position: relative;
+    }
+}
+
+.app-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+    &.move {
+        position: absolute;
+        animation-name: closeLoadingScreen;
+        animation-duration: $transitionTime;
+        -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+        animation-fill-mode: forwards;
     }
 }
