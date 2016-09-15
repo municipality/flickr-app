@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {HeaderRoutes} from '../app.routing';
 
 @Component({
-    selector: 'header',
+    selector: 'headerbar',
     template: `
         <div class="title">
             <h1>Brianium</h1>

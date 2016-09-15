@@ -8,7 +8,6 @@ $barWidth: 7em;
 $fontfamily: Roboto, sans-serif;
 $barColor: #1c1c1f;
 
-
 .white {
     background-color: rgba(255, 255, 255, .7);
     color:  rgba(52, 152, 219, 1);
@@ -34,34 +33,63 @@ h1 {
 
 }
 
-header {
-    background-color: rgba(200, 200, 200, .5);
-    padding-top: 2.5em;
+app {
     display: block;
-    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+
+$headerTitleFontSize: 5vw;
+$headerHeight: 5em;
+
+headerbar {
+    background-color: rgba(200, 200, 200, .5);
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: $headerHeight;
+    z-index: 100;
+
     .title {
-        width: 100%;
+        display: inline-block;
+        height: 50%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        right: 5%;
+
+        //font-size: $headerTitleFontSize;
         h1 {
             text-align: center;
         }
     }
 
     .navbar {
-        padding : 2em 0em;
         position: relative;
         //use display inline-block for width size to content
         display: inline-block;
-        height: auto;
-        @include center(horizontal);
+        left: 1em;
+        @include center(vertical);
         .link {
             display: inline-block;
             cursor: pointer;
-            margin: 0px 1em;
+            margin: 0px 2em;
             p {
                 font-weight: 900;
             }
         }
     }
+}
+
+.body-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: $headerHeight;
 }
 
 $barIconSize : 50;
@@ -151,16 +179,6 @@ bar {
 
 
 }
-
-.body-container {
-    // position: absolute;
-    top: 0;
-    right: 0;
-    left: $barWidth + 2em;
-    height: 100%;
-}
-
-
 
 .designs {
     padding-bottom: 5em;
@@ -629,6 +647,10 @@ $listSize: 15em;
         vertical-align: top;
 
         photogallery {
+            display: block;
+            height: 100%;
+            overflow-y: scroll;
+
             .photo {
                 position: relative;
                 float: left;

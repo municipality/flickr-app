@@ -218,35 +218,55 @@ h1, h2, h3, h4, h5, h6 {
   color: #3498db;
   font-weight: 300; }
 
-header {
-  background-color: rgba(200, 200, 200, 0.5);
-  padding-top: 2.5em;
+app {
   display: block;
-  position: relative; }
-  header .title {
-    width: 100%; }
-    header .title h1 {
+  height: 100vh;
+  width: 100%; }
+
+headerbar {
+  background-color: rgba(200, 200, 200, 0.5);
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 5em;
+  z-index: 100; }
+  headerbar .title {
+    display: inline-block;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 5%; }
+    headerbar .title h1 {
       text-align: center; }
-  header .navbar {
-    padding: 2em 0em;
+  headerbar .navbar {
     position: relative;
     display: inline-block;
-    height: auto;
-    left: 50%;
-    -webkit-transform: translate(-50%, 0);
+    left: 1em;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
     /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-    -ms-transform: translate(-50%, 0);
+    -ms-transform: translate(0, -50%);
     /* IE 9 */
-    transform: translate(-50%, 0);
+    transform: translate(0, -50%);
     /* IE 10, Fx 16+, Op 12.1+ */
-    -o-transform: translate(-50%, 0);
-    -moz-transform: translate(-50%, 0); }
-    header .navbar .link {
+    -o-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%); }
+    headerbar .navbar .link {
       display: inline-block;
       cursor: pointer;
-      margin: 0px 1em; }
-      header .navbar .link p {
+      margin: 0px 2em; }
+      headerbar .navbar .link p {
         font-weight: 900; }
+
+.body-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 5em; }
 
 bar {
   display: block;
@@ -324,12 +344,6 @@ bar {
         margin: 0;
         width: 100%;
         text-align: center; }
-
-.body-container {
-  top: 0;
-  right: 0;
-  left: 9em;
-  height: 100%; }
 
 .designs {
   padding-bottom: 5em; }
@@ -750,26 +764,30 @@ bar {
     display: table-cell;
     height: 100%;
     vertical-align: top; }
-    .adventures .presentation-router-container photogallery .photo {
-      position: relative;
-      float: left;
-      width: 15em;
-      height: 15em;
-      margin: .2em;
-      cursor: pointer; }
-    .adventures .presentation-router-container photogallery .photo > img {
-      position: absolute;
-      top: 50%;
-      -webkit-transform: translate(0, -50%);
-      /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-      -ms-transform: translate(0, -50%);
-      /* IE 9 */
-      transform: translate(0, -50%);
-      /* IE 10, Fx 16+, Op 12.1+ */
-      -o-transform: translate(0, -50%);
-      -moz-transform: translate(0, -50%);
-      width: 100%;
-      height: auto; }
+    .adventures .presentation-router-container photogallery {
+      display: block;
+      height: 100%;
+      overflow-y: scroll; }
+      .adventures .presentation-router-container photogallery .photo {
+        position: relative;
+        float: left;
+        width: 15em;
+        height: 15em;
+        margin: .2em;
+        cursor: pointer; }
+      .adventures .presentation-router-container photogallery .photo > img {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+        -ms-transform: translate(0, -50%);
+        /* IE 9 */
+        transform: translate(0, -50%);
+        /* IE 10, Fx 16+, Op 12.1+ */
+        -o-transform: translate(0, -50%);
+        -moz-transform: translate(0, -50%);
+        width: 100%;
+        height: auto; }
   .adventures .presentation {
     height: 100%; }
     .adventures .presentation .presentation-header {

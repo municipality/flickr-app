@@ -5,7 +5,7 @@ import {Header} from './components/header.component';
     selector: 'app',
     directives: [Sidebar, Header],
     template: `
-        <header></header>
+        <headerbar></headerbar>
         <div class="body-container">
             <router-outlet></router-outlet>
         </div>
