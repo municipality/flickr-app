@@ -133,7 +133,7 @@ app.use('/api', router);
 //For routing, if no matching path, send it to angular2 to handle
 app.all('*', function(req, res) {
   console.log("[TRACE] Server 404 request:" + req.originalUrl);
-  //res.status(200).sendFile(path.join(__dirname, 'index.html'));
+  res.status(200).sendFile(path.join(__dirname, 'index.html'));
 });
 
 
