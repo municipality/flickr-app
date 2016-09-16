@@ -2,7 +2,8 @@
   "name": "brianium",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"tsc -w\" \"node ./bin/www\" \"npm run watch-css\" \"npm run watch-mobile-css\"",
+    "start": "concurrently \"gulp copy:libs\" \"tsc\" \"node ./bin/www\"",
+    "debug": "concurrently \"gulp copy:libs\" \"tsc -w\" \"node ./bin/www\" \"npm run watch-css\" \"npm run watch-mobile-css\"",
     "postinstall": "typings install",
     "build-css": "node-sass --include-path scss scss/main.scss public/app/main.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
@@ -40,6 +41,12 @@
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
+    "del": "^2.1.0",
+    "gulp": "^3.9.1",
+    "gulp-debug": "^2.1.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.8.0",
+    "gulp-uglify": "^2.0.0",
     "node-sass": "^3.8.0",
     "nodemon": "^1.9.2",
     "typescript": "^1.8.10",
