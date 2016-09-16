@@ -4,12 +4,10 @@
   "scripts": {
     "start": "gulp && node ./bin/www",
     "debug": "gulp clean && concurrently \"tsc -w\" \"node ./bin/www\" \"npm run watch-css\" \"npm run watch-mobile-css\"",
-    "postinstall": "typings install",
     "build-css": "node-sass --include-path scss scss/main.scss public/app/main.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "build-mobile-css": "node-sass --include-path scss scss/mobile.scss public/app/mobile.css",
-    "watch-mobile-css": "nodemon -e scss -x \"npm run build-mobile-css\"",
-    "typings": "typings"
+    "watch-mobile-css": "nodemon -e scss -x \"npm run build-mobile-css\""
   },
   "license": "ISC",
   "dependencies": {
