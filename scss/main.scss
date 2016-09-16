@@ -659,13 +659,15 @@ $listSize: 15em;
                 margin: .2em;
 
                 cursor: pointer;
+                overflow: hidden;
             }
 
             .photo > img {
                 position: absolute;
                 @include center(vertical);
                 width: 100%;
-                height: auto;
+                height: 100%;
+                object-fit: cover;
             }
         }
     }

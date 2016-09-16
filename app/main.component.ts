@@ -1,6 +1,8 @@
 import {Component, AfterViewInit} from '@angular/core';
 import {Sidebar} from './components/sidebar.component';
 import {Header} from './components/header.component';
+import {LoadingScreenService} from './loadingscreen.service';
+
 @Component({
     selector: 'app',
     directives: [Sidebar, Header],
@@ -15,6 +17,9 @@ export class MainComponent implements AfterViewInit {
     loadingScreen : Element;
     app;
 
+    constructor (private loadingScreenService:LoadingScreenService) {
+
+    }
 
     /**
      *  Loading screen and app are in the same container for fluid movement
@@ -30,14 +35,10 @@ export class MainComponent implements AfterViewInit {
         `;
         document.getElementById('spinner').classList.add("loaded");
         document.getElementById('spinner').addEventListener('click', e => {
-            this.moveScreen();
+            this.loadingScreenService.hideLoadingScreen();
         });
 
 
-    }
-
-    moveScreen () {
-        document.getElementsByClassName("app-container")[0].classList.add("move");
     }
 
 

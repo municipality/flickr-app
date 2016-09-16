@@ -774,7 +774,8 @@ bar {
         width: 15em;
         height: 15em;
         margin: .2em;
-        cursor: pointer; }
+        cursor: pointer;
+        overflow: hidden; }
       .adventures .presentation-router-container photogallery .photo > img {
         position: absolute;
         top: 50%;
@@ -787,7 +788,8 @@ bar {
         -o-transform: translate(0, -50%);
         -moz-transform: translate(0, -50%);
         width: 100%;
-        height: auto; }
+        height: 100%;
+        object-fit: cover; }
   .adventures .presentation {
     height: 100%; }
     .adventures .presentation .presentation-header {
