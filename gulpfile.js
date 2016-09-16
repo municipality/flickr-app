@@ -8,7 +8,6 @@ const sourcemaps = require('gulp-sourcemaps');
 
 //Process : clean -> compile -> copy:libs
 
-
 // clean the contents of the distribution directory
 gulp.task('clean:app', function () {
   return del('dist/app/**/*');
@@ -22,12 +21,13 @@ gulp.task('clean:libs', function () {
 // TypeScript compile
 //Sourcemaps are used to de-reference uglified code in production code
 gulp.task('compile', ['clean:app'], function () {
-  return gulp
-    .src(tscConfig.files)
-    .pipe(sourcemaps.init())          // <--- sourcemaps
-    .pipe(typescript(tscConfig.compilerOptions))
-    .pipe(sourcemaps.write('.'))      // <--- sourcemaps
-    .pipe(gulp.dest('dist/app'));
+  return gulp.src(tscConfig.files)
+        .pipe(typescript(tscConfig.compilerOptions))
+        .pipe(gulp.dest('dist/app'));
+    // .pipe(sourcemaps.init())          // <--- sourcemaps
+    // .pipe(typescript(tscConfig.compilerOptions))
+    // .pipe(sourcemaps.write('.'))      // <--- sourcemaps
+    // .pipe(gulp.dest('dist/app'));
 });
 
 // copy dependencies
@@ -41,6 +41,11 @@ gulp.task('copy:libs', ['clean:libs'], function() {
     .pipe(gulp.dest('dist/lib'));
 });
 
+gulp.task('uglify', ["compile"], function() {
+    return gulp.src("dist/app/**/*.js")
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/app'));
+});
 
 gulp.task('copy:assets', function() {
   return gulp.src(['app/**/*', 'index.html', 'public/app/*.css', '!app/**/*.ts'], { base : './' })
@@ -54,5 +59,6 @@ gulp.task('tsconfig-glob', function () {
   });
 });
 
-gulp.task('build', ['compile', 'copy:libs']);
+gulp.task('clean', ['clean:app', 'clean:libs']);
+gulp.task('build', ['uglify']);
 gulp.task('default', ['build']);
