@@ -17,7 +17,10 @@ gulp.task('clean:app', function () {
 gulp.task('clean:libs', function () {
   return del('dist/lib/**/*');
 });
-
+/**
+    UGLIFYING GENERATED JAVASCRIPT BREAKS SOME FUNCTIONALITY
+    DO NOT UGLIFY
+*/
 // TypeScript compile
 //Sourcemaps are used to de-reference uglified code in production code
 gulp.task('compile', ['clean'], function () {
@@ -66,5 +69,5 @@ gulp.task('tsconfig-glob', function () {
 });
 
 gulp.task('clean', ['clean:app', 'clean:libs']);
-gulp.task('build', ['uglify']);
+gulp.task('build', ['compile']);
 gulp.task('default', ['build']);

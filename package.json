@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "tsc && gulp uglify:only",
-    "debug": "gulp clean && concurrently \"tsc -w\" \"node ./bin/www\" \"npm run watch-css\" \"npm run watch-mobile-css\"",
+    "postinstall": "gulp",
+    "debug": "concurrently \"tsc -w\" \"node ./bin/www\" \"npm run watch-css\" \"npm run watch-mobile-css\"",
     "build-css": "node-sass --include-path scss scss/main.scss public/app/main.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "build-mobile-css": "node-sass --include-path scss scss/mobile.scss public/app/mobile.css",
