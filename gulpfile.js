@@ -20,7 +20,7 @@ gulp.task('clean:libs', function () {
 
 // TypeScript compile
 //Sourcemaps are used to de-reference uglified code in production code
-gulp.task('compile', ['clean:app'], function () {
+gulp.task('compile', ['clean'], function () {
   return gulp.src(tscConfig.files)
         .pipe(typescript(tscConfig.compilerOptions))
         .pipe(gulp.dest('dist/app'));
@@ -46,6 +46,12 @@ gulp.task('uglify', ["compile"], function() {
         .pipe(uglify())
         .pipe(gulp.dest('dist/app'));
 });
+
+gulp.task('uglify:only', function() {
+    return gulp.src("dist/app/**/*.js")
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/app'));
+})
 
 gulp.task('copy:assets', function() {
   return gulp.src(['app/**/*', 'index.html', 'public/app/*.css', '!app/**/*.ts'], { base : './' })
