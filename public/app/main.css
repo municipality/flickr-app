@@ -224,7 +224,7 @@ app {
   width: 100%; }
 
 headerbar {
-  background-color: rgba(200, 200, 200, 0.5);
+  background-color: rgba(250, 250, 250, 0.7);
   display: block;
   position: fixed;
   width: 100vw;
@@ -253,12 +253,30 @@ headerbar {
     /* IE 10, Fx 16+, Op 12.1+ */
     -o-transform: translate(0, -50%);
     -moz-transform: translate(0, -50%); }
+    headerbar .navbar .menu-button {
+      cursor: pointer; }
     headerbar .navbar .link {
       display: inline-block;
       cursor: pointer;
       margin: 0px 2em; }
       headerbar .navbar .link p {
         font-weight: 900; }
+  headerbar .navmenu {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    -webkit-transform: translateX(-100%);
+    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: translateX(-100%);
+    /* IE 9 */
+    transform: translateX(-100%);
+    /* IE 10, Fx 16+, Op 12.1+ */
+    -o-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    width: 30%;
+    margin: 5em auto 0 auto;
+    background-color: white;
+    z-index: 100; }
 
 .body-container {
   position: absolute;

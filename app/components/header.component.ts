@@ -8,11 +8,19 @@ import {HeaderRoutes} from '../app.routing';
             <h1>Brianium</h1>
         </div>
         <div class="navbar">
+            <div class="menu-button">
+                <h3>Menu</h3>
+            </div>
+        <!--
             <div tabindex=0 class="link"
                  *ngFor="let route of routeData; let i = index"
                  routerLink="{{route.path}}" routerLinkedActive="active">
                  <p>{{route.name}}</p>
             </div>
+            -->
+        </div>
+        <div class="navmenu">
+            
         </div>
     `
 })
