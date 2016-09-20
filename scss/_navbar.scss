@@ -1,0 +1,91 @@
+@import 'mixins';
+$headerTitleFontSize: 5vw;
+$headerHeight: 5em;
+$headerbarColor: rgba(250, 250, 250, .8);
+$menuColor: rgba(250, 250, 250, .8);
+$showMenuAnim : .3s;
+
+@keyframes showMenu {
+    from {
+        @include transform(translateX(-100%));
+    }
+    to {
+        @include transform(translateX(0%));
+    }
+}
+
+headerbar {
+    h1, h2, h3, h4, h5, h6, p {
+        letter-spacing: 1.3em;
+    }
+}
+
+nav {
+    background-color: $headerbarColor;
+    position: fixed;
+    width: 100vw;
+    height: $headerHeight;
+    z-index: 100;
+
+    .title {
+        display: inline-block;
+        height: 50%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        right: 5%;
+        line-height: 50%;
+
+        //font-size: $headerTitleFontSize;
+        h1 {
+            text-align: center;
+        }
+    }
+
+    .navbar {
+        position: relative;
+        //use display inline-block for width size to content
+        display: inline-block;
+        left: 3em;
+        @include center(vertical);
+
+        .menu-button {
+            cursor: pointer;
+            padding: 0 2em;
+            &::after {
+                content: '';
+                position:absolute;
+                width: 100%;
+                height: 2px;
+                background-color: red;
+                top: 50%;
+                left: 0;
+            }
+        }
+        .link {
+            display: inline-block;
+            cursor: pointer;
+            margin: 0px 2em;
+            p {
+                font-weight: 900;
+            }
+        }
+    }
+}
+
+.navmenu {
+    position: fixed;
+    top: $headerHeight;
+    bottom: 0;
+    @include transform(translateX(-100%));
+    width: 30%;
+    background-color: $menuColor;
+    z-index: 100;
+
+    @include transition(transform, $showMenuAnim);
+
+    &.showMenu {
+        @include transform(translateX(0));
+    }
+}

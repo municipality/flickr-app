@@ -2,6 +2,7 @@
 @import 'loadingmask';
 @import 'animate';
 @import 'loadingscreen';
+@import 'navbar';
 
 $blue: rgba(52, 152, 219, 1);
 $barWidth: 7em;
@@ -37,67 +38,6 @@ app {
     display: block;
     height: 100vh;
     width: 100%;
-}
-
-
-$headerTitleFontSize: 5vw;
-$headerHeight: 5em;
-$headerbarColor: rgba(250, 250, 250, .7);
-
-headerbar {
-    background-color: $headerbarColor;
-    display: block;
-    position: fixed;
-    width: 100vw;
-    height: $headerHeight;
-    z-index: 100;
-
-    .title {
-        display: inline-block;
-        height: 50%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        right: 5%;
-
-        //font-size: $headerTitleFontSize;
-        h1 {
-            text-align: center;
-        }
-    }
-
-    .navbar {
-        position: relative;
-        //use display inline-block for width size to content
-        display: inline-block;
-        left: 1em;
-        @include center(vertical);
-
-        .menu-button {
-            cursor: pointer;
-
-        }
-        .link {
-            display: inline-block;
-            cursor: pointer;
-            margin: 0px 2em;
-            p {
-                font-weight: 900;
-            }
-        }
-    }
-
-    .navmenu {
-        position: absolute;
-        height: 100vh;
-        top: 0;
-        @include transform(translateX(-100%));
-        width: 30%;
-        margin: $headerHeight auto 0 auto;
-        background-color: white;
-        z-index: 100;
-    }
 }
 
 .body-container {

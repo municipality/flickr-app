@@ -4,30 +4,47 @@ import {HeaderRoutes} from '../app.routing';
 @Component({
     selector: 'headerbar',
     template: `
-        <div class="title">
-            <h1>Brianium</h1>
-        </div>
-        <div class="navbar">
-            <div class="menu-button">
-                <h3>Menu</h3>
+        <nav>
+            <div class="title">
+                <h1>Brianium</h1>
             </div>
-        <!--
-            <div tabindex=0 class="link"
-                 *ngFor="let route of routeData; let i = index"
-                 routerLink="{{route.path}}" routerLinkedActive="active">
-                 <p>{{route.name}}</p>
+            <div class="navbar">
+                <div class="menu-button" (click)="clickMenu(menu)">
+                    <h3>MENU</h3>
+                </div>
+            <!--
+                <div tabindex=0 class="link"
+                     *ngFor="let route of routeData; let i = index"
+                     routerLink="{{route.path}}" routerLinkedActive="active">
+                     <p>{{route.name}}</p>
+                </div>
+                -->
             </div>
-            -->
-        </div>
-        <div class="navmenu">
-            
+        </nav>
+        <div #menu class="navmenu">
+
         </div>
     `
 })
 export class Header {
 
+    isMenuShown: boolean;
+
     routeData : Object[];
     constructor () {
         this.routeData = HeaderRoutes;
+        this.isMenuShown = false;
+    }
+
+    clickMenu (menu) {
+        if(!this.isMenuShown) {
+            menu.classList.add("showMenu");
+            this.isMenuShown = true;
+        }
+        else {
+            menu.classList.remove("showMenu");
+            this.isMenuShown = false;
+        }
+
     }
 }
