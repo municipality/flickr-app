@@ -107,15 +107,55 @@ router.get('/getseasonalbums', function(req, res) {
     });
 });
 
+
+/**
+  Result will be in format:
+    Object <- Result
+        photoset
+            photo[]
+                id ..
+                sizes [] = different sizes of photo
+
+*/
+
 router.get('/getadventurephotos', function(req, res) {
     var albumId = req.query["albumId"];
+
     flickr.photosets.getPhotos({
         api_key: flickrOptions.api_key,
         user_id: flickrOptions.user_id,
         photoset_id: albumId
     }, function(err, result) {
         if(!err) {
-            res.json(result);
+            //Array of photos
+            var photos = result.photoset.photo;
+            var counter = 0;
+            var numPhotos = photos.length;
+            photos.forEach(function(val, index, arr) {
+                flickr.photos.getSizes({
+                    api_key: flickrOptions.api_key,
+                    photo_id: val.id
+                }, function(err, result2)
+                    {
+                        if(result.stat === "ok") {
+                            result.photoset.photo[index]["sizes"] = result2.sizes.size;
+                            counter++;
+                            if(counter === numPhotos) {
+                                debugger
+                                res.json(result);
+                            }
+                        } else {
+                            res.json({error: "cannot retrieve thumbnail."});
+                        }
+                });
+            })
+
+            //res.json(result);
+        }
+        else {
+            res.json({
+                error: true
+            });
         }
 
     });

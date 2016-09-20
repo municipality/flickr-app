@@ -5,8 +5,8 @@ import {AdventuresService} from './adventures.service';
 
 @Component ({
     template : `
-        <div *ngFor="let item of photos" class="photo" tabindex="0" (click)="handleClick(item)">
-            <img src={{item.url}}>
+        <div *ngFor="let photo of photos" class="photo" tabindex="0" (click)="handleClick(item)">
+            <img src={{photo.sizes[4].source}}>
         </div>
     `,
     selector : `photogallery`
