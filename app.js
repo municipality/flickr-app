@@ -109,13 +109,15 @@ router.get('/getseasonalbums', function(req, res) {
 
 
 /**
-  Result will be in format:
-    Object <- Result
+*
+* Result will be in format:
+    Object
         photoset
             photo[]
                 id ..
-                sizes [] = different sizes of photo
+                sizes [] = different sizes of photos
 
+*
 */
 
 router.get('/getadventurephotos', function(req, res) {

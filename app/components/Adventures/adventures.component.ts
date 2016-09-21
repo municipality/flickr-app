@@ -72,7 +72,7 @@ export class PhotoGallery implements OnInit {
             </div>
             <div class="event" *ngFor="let event of eventsList"
             [routerLink]='["/adventures/"+season, event]'
-            routerLinkedActive="active">
+            routerLinkActive="active">
                 <div class="event-name-container">
                     <h3>{{event}}</h3>
                     <!--<h5 *ngIf="adventure.dateEnd">{{adventure.dateStart}} - {{adventure.dateEnd}}</h5>
@@ -137,7 +137,7 @@ export class Events implements OnInit, OnDestroy {
             <div class="season" *ngFor="let season of seasons"
             [routerLink]='["/adventures", season.path]'
 
-             routerLinkedActive="active">
+             routerLinkActive="active">
                 <h3>{{season.name}}</h3>
             </div>
         </div>

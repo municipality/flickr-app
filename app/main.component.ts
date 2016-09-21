@@ -38,7 +38,15 @@ export class MainComponent implements AfterViewInit {
             this.loadingScreenService.hideLoadingScreen();
         });
 
-
+        document.addEventListener("keydown", function(e) {
+            var code = e.which;
+            //User pressed enter
+            if(code === 13) {
+                if(e.target["tabIndex"] > -1) {
+                    e.target.dispatchEvent(new Event('click'));
+                }
+            }
+        });
     }
 
 

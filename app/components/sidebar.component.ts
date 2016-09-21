@@ -8,7 +8,7 @@ import {SidebarRoutes} from '../app.routing';
         <div class="container" #container>
             <div [ngClass]="{'logo': i==0, 'icon': i!=0}"
                  *ngFor="let route of routeData; let i = index"
-                 routerLink="{{route.path}}" routerLinkedActive="active">
+                 routerLink="{{route.path}}" routerLinkActive="active">
                  <img *ngIf="i==0" src={{route.icon}}>
                  <div *ngIf="i!=0" class="icon-sym {{route.iconCls}}"></div>
                  <p *ngIf="i != 0">{{route.display}}</p>
