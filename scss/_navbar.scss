@@ -6,10 +6,13 @@ $menuColor: rgba(250, 250, 250, .8);
 $showMenuAnim : .2s;
 
 @keyframes showMenu {
-    from {
+    0% {
         @include transform(translateX(-100%));
     }
-    to {
+    1% {
+        visibility: visible;
+    }
+    100% {
         @include transform(translateX(0%));
     }
 }
@@ -73,6 +76,7 @@ nav {
     width: 30%;
     background-color: $menuColor;
     z-index: 100;
+    visibility: hidden;
 
     h1, h2, h3, h4, h5, h6, p {
         letter-spacing: .7em;
@@ -81,6 +85,7 @@ nav {
     @include transform(translateX(-100%));
     @include transition(transform, $showMenuAnim);
     &.showMenu {
+        visibility: visible;
         @include transform(translateX(0));
     }
 

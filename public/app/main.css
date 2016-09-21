@@ -202,7 +202,7 @@ app {
     animation-fill-mode: forwards; }
 
 @keyframes showMenu {
-  from {
+  0% {
     -webkit-transform: translateX(-100%);
     /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
     -ms-transform: translateX(-100%);
@@ -211,7 +211,9 @@ app {
     /* IE 10, Fx 16+, Op 12.1+ */
     -o-transform: translateX(-100%);
     -moz-transform: translateX(-100%); }
-  to {
+  1% {
+    visibility: visible; }
+  100% {
     -webkit-transform: translateX(0%);
     /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
     -ms-transform: translateX(0%);
@@ -273,6 +275,7 @@ nav {
   width: 30%;
   background-color: rgba(250, 250, 250, 0.8);
   z-index: 100;
+  visibility: hidden;
   -webkit-transform: translateX(-100%);
   /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
   -ms-transform: translateX(-100%);
@@ -290,6 +293,7 @@ nav {
   .navmenu h1, .navmenu h2, .navmenu h3, .navmenu h4, .navmenu h5, .navmenu h6, .navmenu p {
     letter-spacing: .7em; }
   .navmenu.showMenu {
+    visibility: visible;
     -webkit-transform: translateX(0);
     /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
     -ms-transform: translateX(0);
