@@ -157,6 +157,21 @@
     height: 10vh;
     bottom: 0;
     left: 0; }
+    .loading-screen-container .spinner .loader-logo {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      top: -25%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      font-size: 10vh;
+      text-align: center;
+      -webkit-animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
+      color: white; }
+      .loading-screen-container .spinner .loader-logo.hide {
+        display: none; }
     .loading-screen-container .spinner .icon-loading-down {
       position: relative;
       top: 50%;
@@ -165,7 +180,10 @@
       font-size: 10vh;
       animation-name: highlight;
       animation-duration: 2s;
-      animation-iteration-count: infinite; }
+      animation-iteration-count: infinite;
+      visibility: hidden; }
+      .loading-screen-container .spinner .icon-loading-down.show {
+        visibility: visible; }
     .loading-screen-container .spinner.loaded:hover {
       cursor: pointer;
       background-color: rgba(250, 250, 250, 0.1); }
@@ -233,16 +251,19 @@ nav {
   height: 5em;
   z-index: 100; }
   nav .title {
-    display: inline-block;
-    height: 50%;
     position: absolute;
     top: 0;
     bottom: 0;
     margin: auto;
-    right: 5%;
-    line-height: 50%; }
-    nav .title h1 {
-      text-align: center; }
+    right: 5%; }
+    nav .title .logo {
+      display: inline-block;
+      color: black;
+      vertical-align: middle;
+      font-size: 5em; }
+    nav .title .logo-text {
+      display: inline-block;
+      vertical-align: middle; }
   nav .navbar {
     position: relative;
     display: inline-block;

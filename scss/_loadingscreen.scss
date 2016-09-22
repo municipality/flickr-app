@@ -2,6 +2,7 @@
 $loadingHeight: 10vh;
 $transitionTime: .5s;
 $highlightDuration: 2s;
+$logo-size: 100px;
 @keyframes closeLoadingScreen {
     0% {
         top : 0;
@@ -52,6 +53,24 @@ $highlightDuration: 2s;
         bottom: 0;
         left: 0;
 
+        .loader-logo {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: -25%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            font-size: $loadingHeight;
+            text-align: center;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+            color: white;
+            &.hide {
+                display: none;
+            }
+        }
+
         .icon-loading-down {
             position: relative;
             top: 50%;
@@ -61,6 +80,11 @@ $highlightDuration: 2s;
             animation-name: highlight;
             animation-duration: $highlightDuration;
             animation-iteration-count: infinite;
+            visibility: hidden;
+
+            &.show {
+                visibility: visible;
+            }
         }
 
         &.loaded:hover {

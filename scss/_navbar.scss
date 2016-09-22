@@ -29,20 +29,23 @@ nav {
     width: 100vw;
     height: $headerHeight;
     z-index: 100;
-
+    
     .title {
-        display: inline-block;
-        height: 50%;
         position: absolute;
         top: 0;
         bottom: 0;
         margin: auto;
         right: 5%;
-        line-height: 50%;
-
         //font-size: $headerTitleFontSize;
-        h1 {
-            text-align: center;
+        .logo {
+            display: inline-block;
+            color: black;
+            vertical-align: middle;
+            font-size: $headerHeight;
+        }
+        .logo-text {
+            display: inline-block;
+            vertical-align: middle;
         }
     }
 

@@ -5,8 +5,11 @@ import {HeaderRoutes} from '../app.routing';
     selector: 'headerbar',
     template: `
         <nav>
-            <div class="title icon-simple-logo">
-                <h1>Brianium</h1>
+            <div class="title">
+                <div class="logo icon-simple-logo"></div>
+                <div class="logo-text">
+                    <h1>Brianium</h1>
+                </div>
             </div>
             <div class="navbar">
                 <div class="menu-button" tabindex=0 (click)="clickMenu(menu)">
