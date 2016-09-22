@@ -74,6 +74,7 @@ nav {
     top: $headerHeight;
     bottom: 0;
     width: 30%;
+    min-width: 300px;
     background-color: $menuColor;
     z-index: 100;
     visibility: hidden;

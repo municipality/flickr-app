@@ -5,7 +5,7 @@ import {HeaderRoutes} from '../app.routing';
     selector: 'headerbar',
     template: `
         <nav>
-            <div class="title">
+            <div class="title icon-simple-logo">
                 <h1>Brianium</h1>
             </div>
             <div class="navbar">
