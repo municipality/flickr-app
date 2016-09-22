@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {HeaderRoutes} from '../app.routing';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'headerbar',
@@ -27,8 +28,8 @@ import {HeaderRoutes} from '../app.routing';
         <div #menu class="navmenu">
             <div tabindex=0 class="link"
                  *ngFor="let route of routeData; let i = index"
-                 routerLink="{{route.path}}" routerLinkActive="active"
-                 (click)="hideMenu()">
+                 routerLinkActive="active"
+                 (click)="hideMenu(); goTo(route);">
                  <p>{{route.name}}</p>
             </div>
         </div>
@@ -39,7 +40,7 @@ export class Header {
     isMenuShown: boolean;
     @ViewChild('menu') menu;
     routeData : Object[];
-    constructor () {
+    constructor (private router:Router) {
         this.routeData = HeaderRoutes;
         this.isMenuShown = false;
     }
@@ -61,5 +62,9 @@ export class Header {
     hideMenu () {
         this.menu.nativeElement.classList.remove("showMenu");
         this.isMenuShown = false;
+    }
+
+    goTo(route) {
+        this.router.navigateByUrl(route.path);
     }
 }

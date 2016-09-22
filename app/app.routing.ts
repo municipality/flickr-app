@@ -14,6 +14,11 @@ export const appRoutingProviders : any[] = [];
 
 export const routing : ModuleWithProviders = RouterModule.forRoot([...appRoutes]);
 
+
+/*
+ Paths MUST match /pathname in Routes
+
+*/
 export const SidebarRoutes : any[] = [
     {
         name : "Home",
