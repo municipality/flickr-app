@@ -67,7 +67,7 @@ export class PhotoGallery implements OnInit {
                     <div class="loader"></div>
                 </div>
             </div>
-            <div class="header">
+            <div class="events-header">
                 <h4>Adventures</h4>
             </div>
             <div class="event" *ngFor="let event of eventsList"
@@ -131,7 +131,7 @@ export class Events implements OnInit, OnDestroy {
         <div class="adventures-row">
         <div class="seasons-container">
         <div class="seasons">
-            <div class="header">
+            <div class="seasons-header">
                 <h4>Seasons</h4>
             </div>
             <div class="season" *ngFor="let season of seasons"
