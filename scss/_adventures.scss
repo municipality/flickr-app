@@ -1,0 +1,192 @@
+$seasons-header-color: rgb(235, 235, 235);
+$shadow-color: #d9d9d9;
+$list-size: 15em;
+
+@import 'colors';
+.adventures {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.adventures-row {
+    display: table-row;
+}
+
+.seasons-container {
+    height: 100%;
+    width: $list-size;
+    padding-right: 5px;
+
+    display: table-cell;
+    vertical-align: top;
+}
+
+.seasons {
+    position: relative;
+    @include box-shadow(4px 0 2px 1px $shadow-color);
+    height: 100%;
+    overflow: scroll;
+    margin-right: 5px;
+    width: 100%;
+
+}
+
+
+
+.header {
+    position: relative;
+    padding-left: .5em;
+    height: 2em;
+    background-color: $seasons-header-color;
+    h4 {
+        position: absolute;
+        @include center(vertical);
+    }
+}
+
+.season {
+    padding-left: .5em;
+    height: 3em;
+    position: relative;
+    h3 {
+        @include center(vertical);
+        position: absolute;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.active {
+        @include fadeIn(.2s);
+        background-color: $blue;
+        h3 {
+            color: white;
+        }
+    }
+}
+
+.season:after{
+    content:'';
+    width: 50%;
+    height: 1px;
+    background: gray;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+
+}
+
+
+
+// Router container for styles and presentation
+.events-router-container {
+    display: block;
+    height: 100%;
+}
+
+events {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.events-container {
+    height: 100%;
+    width: $list-size;
+    display: table-cell;
+    padding-right: 5px;
+
+}
+
+.events {
+    position: relative;
+    margin-right: 5px;
+    width: 100%;
+    @include box-shadow(4px 0 2px 1px $shadow-color);
+    height: 100%;
+    overflow: scroll;
+}
+
+.header {
+    position: relative;
+    padding-left: .5em;
+    height: 2em;
+    background-color: $seasons-header-color;
+    h4 {
+        position: absolute;
+        @include center(vertical);
+    }
+}
+
+.event {
+    padding-left: .5em;
+    height: 3em;
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.active {
+        @include fadeIn(.2s);
+        background-color: $blue;
+        h1, h2, h3, h4, h5, h6 {
+            color: white;
+        }
+    }
+
+    .event-name-container {
+        position: absolute;
+        @include center(vertical);
+    }
+
+}
+
+.event::after {
+    content:'';
+    width: 50%;
+    height: 1px;
+    background: gray;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+
+.presentation-router-container {
+    display: table-cell;
+    height: 100%;
+    vertical-align: top;
+
+}
+
+photogallery {
+    display: block;
+    height: 100%;
+    overflow-y: scroll;
+
+    .photo {
+        position: relative;
+        float: left;
+        width: 15em;
+        height: 15em;
+        margin: .2em;
+
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .photo > img {
+        position: absolute;
+        @include center(vertical);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

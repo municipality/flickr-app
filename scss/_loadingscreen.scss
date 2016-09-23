@@ -37,15 +37,29 @@ $logo-size: 50vh;
     }
 }
 
+.logo-container::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: .2em;
+    width: 75%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+}
+
 .loading-bg {
     position: absolute;
     top: -10px;
     bottom: -10px;
     left: -10px;
     right: -10px;
+    background-color: rgba(200, 200, 200, .6);
+    //background-image: url("http://www.easyfreepatterns.com/patterns/108/floral-fine-art-photograph-queen-a-nnes-lace-flowers-garden-spring--108937.jpg");
     background-size: cover;
     //background-attachment: fixed;
-    filter: blur(6px);
+    filter: blur(8px);
 }
 
 .loading-screen-container {
@@ -63,52 +77,52 @@ $logo-size: 50vh;
         -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
         animation-fill-mode: forwards;
     }
+}
 
-    .spinner {
+.spinner {
+    position: absolute;
+    width: 100%;
+    height: $loadingHeight;
+    bottom: 0;
+    left: 0;
+
+    .loader-logo {
         position: absolute;
-        width: 100%;
-        height: $loadingHeight;
-        bottom: 0;
+        width: 50%;
+        height: 100%;
+        // top: -25%;
         left: 0;
-
-        .loader-logo {
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            // top: -25%;
-            left: 0;
-            right: 0;
-            margin: auto;
-            font-size: $loadingHeight;
-            text-align: center;
-            -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
-            color: white;
-            &.hide {
-                display: none;
-            }
+        right: 0;
+        margin: auto;
+        font-size: $loadingHeight;
+        text-align: center;
+        -webkit-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+        color: white;
+        &.hide {
+            display: none;
         }
+    }
 
-        .icon-loading-down {
-            position: relative;
-            top: 50%;
-            transform: translate(0, -50%);
-            text-align: center;
-            font-size: 10vh;
-            animation-name: highlight;
-            animation-duration: $highlightDuration;
-            animation-iteration-count: infinite;
-            visibility: hidden;
+    .icon-loading-down {
+        position: relative;
+        top: 50%;
+        transform: translate(0, -50%);
+        text-align: center;
+        font-size: 10vh;
+        animation-name: highlight;
+        animation-duration: $highlightDuration;
+        animation-iteration-count: infinite;
+        visibility: hidden;
 
-            &.show {
-                visibility: visible;
-            }
+        &.show {
+            visibility: visible;
         }
+    }
 
-        &.loaded:hover {
-            cursor: pointer;
-            background-color: rgba(250, 250, 250, .1);
-        }
+    &.loaded:hover {
+        cursor: pointer;
+        background-color: rgba(250, 250, 250, .1);
     }
 }
 

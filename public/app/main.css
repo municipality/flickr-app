@@ -138,14 +138,26 @@
     font-size: 50vh;
     color: white; }
 
+.logo-container::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: .2em;
+  width: 75%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: white; }
+
 .loading-bg {
   position: absolute;
   top: -10px;
   bottom: -10px;
   left: -10px;
   right: -10px;
+  background-color: rgba(200, 200, 200, 0.6);
   background-size: cover;
-  filter: blur(6px); }
+  filter: blur(8px); }
 
 .loading-screen-container {
   -webkit-transition: all 0.5s ease-in-out;
@@ -166,41 +178,42 @@
     -webkit-animation-fill-mode: forwards;
     /* Chrome, Safari, Opera */
     animation-fill-mode: forwards; }
-  .loading-screen-container .spinner {
+
+.spinner {
+  position: absolute;
+  width: 100%;
+  height: 10vh;
+  bottom: 0;
+  left: 0; }
+  .spinner .loader-logo {
     position: absolute;
-    width: 100%;
-    height: 10vh;
-    bottom: 0;
-    left: 0; }
-    .loading-screen-container .spinner .loader-logo {
-      position: absolute;
-      width: 50%;
-      height: 100%;
-      left: 0;
-      right: 0;
-      margin: auto;
-      font-size: 10vh;
-      text-align: center;
-      -webkit-animation: spin 1s linear infinite;
-      animation: spin 1s linear infinite;
-      color: white; }
-      .loading-screen-container .spinner .loader-logo.hide {
-        display: none; }
-    .loading-screen-container .spinner .icon-loading-down {
-      position: relative;
-      top: 50%;
-      transform: translate(0, -50%);
-      text-align: center;
-      font-size: 10vh;
-      animation-name: highlight;
-      animation-duration: 2s;
-      animation-iteration-count: infinite;
-      visibility: hidden; }
-      .loading-screen-container .spinner .icon-loading-down.show {
-        visibility: visible; }
-    .loading-screen-container .spinner.loaded:hover {
-      cursor: pointer;
-      background-color: rgba(250, 250, 250, 0.1); }
+    width: 50%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 10vh;
+    text-align: center;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    color: white; }
+    .spinner .loader-logo.hide {
+      display: none; }
+  .spinner .icon-loading-down {
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    text-align: center;
+    font-size: 10vh;
+    animation-name: highlight;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    visibility: hidden; }
+    .spinner .icon-loading-down.show {
+      visibility: visible; }
+  .spinner.loaded:hover {
+    cursor: pointer;
+    background-color: rgba(250, 250, 250, 0.1); }
 
 app {
   position: relative;
@@ -358,6 +371,202 @@ nav {
       right: 0;
       margin: auto;
       z-index: -1; }
+
+.adventures {
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+.adventures-row {
+  display: table-row; }
+
+.seasons-container {
+  height: 100%;
+  width: 15em;
+  padding-right: 5px;
+  display: table-cell;
+  vertical-align: top; }
+
+.seasons {
+  position: relative;
+  box-shadow: 4px 0 2px 1px #d9d9d9;
+  -webkit-box-shadow: 4px 0 2px 1px #d9d9d9;
+  -moz-box-shadow: 4px 0 2px 1px #d9d9d9;
+  height: 100%;
+  overflow: scroll;
+  margin-right: 5px;
+  width: 100%; }
+
+.header {
+  position: relative;
+  padding-left: .5em;
+  height: 2em;
+  background-color: #ebebeb; }
+  .header h4 {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: translate(0, -50%);
+    /* IE 9 */
+    transform: translate(0, -50%);
+    /* IE 10, Fx 16+, Op 12.1+ */
+    -o-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%); }
+
+.season {
+  padding-left: .5em;
+  height: 3em;
+  position: relative; }
+  .season h3 {
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: translate(0, -50%);
+    /* IE 9 */
+    transform: translate(0, -50%);
+    /* IE 10, Fx 16+, Op 12.1+ */
+    -o-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    position: absolute; }
+  .season:hover {
+    cursor: pointer; }
+  .season.active {
+    animation: fadein 0.2s;
+    -moz-animation: fadein 0.2s;
+    /* Firefox */
+    -webkit-animation: fadein 0.2s;
+    /* Safari and Chrome */
+    -o-animation: fadein 0.2s;
+    /* Opera */
+    background-color: #3498db; }
+    .season.active h3 {
+      color: white; }
+
+.season:after {
+  content: '';
+  width: 50%;
+  height: 1px;
+  background: gray;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto; }
+
+.events-router-container {
+  display: block;
+  height: 100%; }
+
+events {
+  display: table;
+  height: 100%;
+  width: 100%; }
+
+.events-container {
+  height: 100%;
+  width: 15em;
+  display: table-cell;
+  padding-right: 5px; }
+
+.events {
+  position: relative;
+  margin-right: 5px;
+  width: 100%;
+  box-shadow: 4px 0 2px 1px #d9d9d9;
+  -webkit-box-shadow: 4px 0 2px 1px #d9d9d9;
+  -moz-box-shadow: 4px 0 2px 1px #d9d9d9;
+  height: 100%;
+  overflow: scroll; }
+
+.header {
+  position: relative;
+  padding-left: .5em;
+  height: 2em;
+  background-color: #ebebeb; }
+  .header h4 {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: translate(0, -50%);
+    /* IE 9 */
+    transform: translate(0, -50%);
+    /* IE 10, Fx 16+, Op 12.1+ */
+    -o-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%); }
+
+.event {
+  padding-left: .5em;
+  height: 3em;
+  position: relative; }
+  .event:hover {
+    cursor: pointer; }
+  .event.active {
+    animation: fadein 0.2s;
+    -moz-animation: fadein 0.2s;
+    /* Firefox */
+    -webkit-animation: fadein 0.2s;
+    /* Safari and Chrome */
+    -o-animation: fadein 0.2s;
+    /* Opera */
+    background-color: #3498db; }
+    .event.active h1, .event.active h2, .event.active h3, .event.active h4, .event.active h5, .event.active h6 {
+      color: white; }
+  .event .event-name-container {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: translate(0, -50%);
+    /* IE 9 */
+    transform: translate(0, -50%);
+    /* IE 10, Fx 16+, Op 12.1+ */
+    -o-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%); }
+
+.event::after {
+  content: '';
+  width: 50%;
+  height: 1px;
+  background: gray;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto; }
+
+.presentation-router-container {
+  display: table-cell;
+  height: 100%;
+  vertical-align: top; }
+
+photogallery {
+  display: block;
+  height: 100%;
+  overflow-y: scroll; }
+  photogallery .photo {
+    position: relative;
+    float: left;
+    width: 15em;
+    height: 15em;
+    margin: .2em;
+    cursor: pointer;
+    overflow: hidden; }
+  photogallery .photo > img {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: translate(0, -50%);
+    /* IE 9 */
+    transform: translate(0, -50%);
+    /* IE 10, Fx 16+, Op 12.1+ */
+    -o-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
 
 .white {
   background-color: rgba(255, 255, 255, 0.7);
@@ -730,214 +939,6 @@ bar {
         right: 1em; }
     .blog .entry .words {
       padding: 0 2em 0 2em; }
-
-.adventures {
-  display: table;
-  width: 100%;
-  height: 100%; }
-  .adventures .adventures-row {
-    display: table-row; }
-  .adventures .seasons-container {
-    height: 100%;
-    width: 15em;
-    padding-right: 5px;
-    display: table-cell;
-    vertical-align: top; }
-    .adventures .seasons-container .seasons {
-      position: relative;
-      box-shadow: 4px 0 2px 1px #d9d9d9;
-      -webkit-box-shadow: 4px 0 2px 1px #d9d9d9;
-      -moz-box-shadow: 4px 0 2px 1px #d9d9d9;
-      height: 100%;
-      overflow: scroll;
-      margin-right: 5px;
-      width: 100%; }
-      .adventures .seasons-container .seasons .header {
-        position: relative;
-        padding-left: .5em;
-        height: 2em;
-        background-color: #ebebeb; }
-        .adventures .seasons-container .seasons .header h4 {
-          position: absolute;
-          top: 50%;
-          -webkit-transform: translate(0, -50%);
-          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-          -ms-transform: translate(0, -50%);
-          /* IE 9 */
-          transform: translate(0, -50%);
-          /* IE 10, Fx 16+, Op 12.1+ */
-          -o-transform: translate(0, -50%);
-          -moz-transform: translate(0, -50%); }
-      .adventures .seasons-container .seasons .season {
-        padding-left: .5em;
-        height: 3em;
-        position: relative; }
-        .adventures .seasons-container .seasons .season h3 {
-          top: 50%;
-          -webkit-transform: translate(0, -50%);
-          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-          -ms-transform: translate(0, -50%);
-          /* IE 9 */
-          transform: translate(0, -50%);
-          /* IE 10, Fx 16+, Op 12.1+ */
-          -o-transform: translate(0, -50%);
-          -moz-transform: translate(0, -50%);
-          position: absolute; }
-        .adventures .seasons-container .seasons .season:hover {
-          cursor: pointer; }
-        .adventures .seasons-container .seasons .season.active {
-          animation: fadein 0.2s;
-          -moz-animation: fadein 0.2s;
-          /* Firefox */
-          -webkit-animation: fadein 0.2s;
-          /* Safari and Chrome */
-          -o-animation: fadein 0.2s;
-          /* Opera */
-          background-color: #3498db; }
-          .adventures .seasons-container .seasons .season.active h3 {
-            color: white; }
-      .adventures .seasons-container .seasons .season:after {
-        content: '';
-        width: 50%;
-        height: 1px;
-        background: gray;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        margin: auto; }
-  .adventures .events-router-container {
-    display: block;
-    height: 100%; }
-  .adventures events {
-    display: table;
-    height: 100%;
-    width: 100%; }
-  .adventures .events-container {
-    height: 100%;
-    width: 15em;
-    display: table-cell;
-    padding-right: 5px; }
-    .adventures .events-container .events {
-      position: relative;
-      margin-right: 5px;
-      width: 100%;
-      box-shadow: 4px 0 2px 1px #d9d9d9;
-      -webkit-box-shadow: 4px 0 2px 1px #d9d9d9;
-      -moz-box-shadow: 4px 0 2px 1px #d9d9d9;
-      height: 100%;
-      overflow: scroll; }
-      .adventures .events-container .events .header {
-        position: relative;
-        padding-left: .5em;
-        height: 2em;
-        background-color: #ebebeb; }
-        .adventures .events-container .events .header h4 {
-          position: absolute;
-          top: 50%;
-          -webkit-transform: translate(0, -50%);
-          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-          -ms-transform: translate(0, -50%);
-          /* IE 9 */
-          transform: translate(0, -50%);
-          /* IE 10, Fx 16+, Op 12.1+ */
-          -o-transform: translate(0, -50%);
-          -moz-transform: translate(0, -50%); }
-      .adventures .events-container .events .event {
-        padding-left: .5em;
-        height: 3em;
-        position: relative; }
-        .adventures .events-container .events .event:hover {
-          cursor: pointer; }
-        .adventures .events-container .events .event.active {
-          animation: fadein 0.2s;
-          -moz-animation: fadein 0.2s;
-          /* Firefox */
-          -webkit-animation: fadein 0.2s;
-          /* Safari and Chrome */
-          -o-animation: fadein 0.2s;
-          /* Opera */
-          background-color: #3498db; }
-          .adventures .events-container .events .event.active h1, .adventures .events-container .events .event.active h2, .adventures .events-container .events .event.active h3, .adventures .events-container .events .event.active h4, .adventures .events-container .events .event.active h5, .adventures .events-container .events .event.active h6 {
-            color: white; }
-        .adventures .events-container .events .event .event-name-container {
-          position: absolute;
-          top: 50%;
-          -webkit-transform: translate(0, -50%);
-          /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-          -ms-transform: translate(0, -50%);
-          /* IE 9 */
-          transform: translate(0, -50%);
-          /* IE 10, Fx 16+, Op 12.1+ */
-          -o-transform: translate(0, -50%);
-          -moz-transform: translate(0, -50%); }
-      .adventures .events-container .events .event::after {
-        content: '';
-        width: 50%;
-        height: 1px;
-        background: gray;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        margin: auto; }
-  .adventures .presentation-router-container {
-    display: table-cell;
-    height: 100%;
-    vertical-align: top; }
-    .adventures .presentation-router-container photogallery {
-      display: block;
-      height: 100%;
-      overflow-y: scroll; }
-      .adventures .presentation-router-container photogallery .photo {
-        position: relative;
-        float: left;
-        width: 15em;
-        height: 15em;
-        margin: .2em;
-        cursor: pointer;
-        overflow: hidden; }
-      .adventures .presentation-router-container photogallery .photo > img {
-        position: absolute;
-        top: 50%;
-        -webkit-transform: translate(0, -50%);
-        /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-        -ms-transform: translate(0, -50%);
-        /* IE 9 */
-        transform: translate(0, -50%);
-        /* IE 10, Fx 16+, Op 12.1+ */
-        -o-transform: translate(0, -50%);
-        -moz-transform: translate(0, -50%);
-        width: 100%;
-        height: 100%;
-        object-fit: cover; }
-  .adventures .presentation {
-    height: 100%; }
-    .adventures .presentation .presentation-header {
-      display: none; }
-    .adventures .presentation.summer2016losangeles p {
-      margin: 0; }
-    .adventures .presentation.summer2016losangeles .header {
-      position: relative; }
-    .adventures .presentation.summer2016losangeles .header::after {
-      content: '';
-      width: 50%;
-      height: 1px;
-      background: gray;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      margin: auto; }
-  .adventures summer2016losangeles {
-    display: block;
-    height: 100%;
-    width: 100%;
-    overflow: scroll;
-    position: relative; }
-    .adventures summer2016losangeles .santa-monica img {
-      width: 100%;
-      height: auto; }
 
 .home {
   position: relative;
