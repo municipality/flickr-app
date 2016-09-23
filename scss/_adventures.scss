@@ -173,9 +173,8 @@ photogallery {
     .photo {
         position: relative;
         float: left;
-        width: 15em;
+        width: 25%;
         height: 15em;
-        margin: .2em;
 
         cursor: pointer;
         overflow: hidden;
@@ -187,13 +186,15 @@ photogallery {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        margin: .3em;
     }
 }
 
-@media only screen and (max-device-width: 1200px) {
+@mixin mobile-mode {
     .seasons-container {
         z-index: 1;
         width: 100%;
+        padding: 0;
     }
 
     .events-container {
@@ -212,8 +213,20 @@ photogallery {
         z-index: 3;
 
         .photo {
-            width: 10em;
+            width: 33.333%;
             height: 10em;
+
+            img {
+                margin: .1em;
+            }
         }
     }
+}
+
+@media only screen and (max-device-width: 1200px) {
+    @include mobile-mode;
+}
+
+@media (max-width: 1000px) {
+    @include mobile-mode;
 }

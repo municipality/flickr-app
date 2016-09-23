@@ -523,6 +523,7 @@ textarea {
   right: -10px;
   background-color: rgba(200, 200, 200, 0.6);
   background-size: cover;
+  background-position: center;
   filter: blur(8px); }
 
 .loading-screen-container {
@@ -742,7 +743,13 @@ nav {
       margin: auto;
       z-index: -1; }
 
-@media (max-width: 800px) {
+@media only screen and (max-device-width: 600px) {
+  .nav-title-logo-text {
+    display: none; }
+  .navmenu {
+    width: 100%; } }
+
+@media (max-width: 1000px) {
   .nav-title-logo-text {
     display: none; } }
 
@@ -922,9 +929,8 @@ photogallery {
   photogallery .photo {
     position: relative;
     float: left;
-    width: 15em;
+    width: 25%;
     height: 15em;
-    margin: .2em;
     cursor: pointer;
     overflow: hidden; }
   photogallery .photo > img {
@@ -940,12 +946,14 @@ photogallery {
     -moz-transform: translate(0, -50%);
     width: 100%;
     height: 100%;
-    object-fit: cover; }
+    object-fit: cover;
+    margin: .3em; }
 
 @media only screen and (max-device-width: 1200px) {
   .seasons-container {
     z-index: 1;
-    width: 100%; }
+    width: 100%;
+    padding: 0; }
   .events-container {
     position: absolute;
     width: 100%;
@@ -959,8 +967,33 @@ photogallery {
     background-color: white;
     z-index: 3; }
     photogallery .photo {
-      width: 10em;
-      height: 10em; } }
+      width: 33.333%;
+      height: 10em; }
+      photogallery .photo img {
+        margin: .1em; } }
+
+@media (max-width: 1000px) {
+  .seasons-container {
+    z-index: 1;
+    width: 100%;
+    padding: 0; }
+  .events-container {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    z-index: 2; }
+  photogallery {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    z-index: 3; }
+    photogallery .photo {
+      width: 33.333%;
+      height: 10em; }
+      photogallery .photo img {
+        margin: .1em; } }
 
 .blog {
   position: relative;

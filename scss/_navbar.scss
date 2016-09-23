@@ -120,7 +120,15 @@ nav {
     }
 }
 
-@media (max-width: 800px) {
+@media only screen and (max-device-width: 600px) {
+    .nav-title-logo-text {
+        display: none;
+    }
+    .navmenu {
+        width: 100%;
+    }
+}
+@media (max-width: 1000px) {
     .nav-title-logo-text {
         display: none;
     }
