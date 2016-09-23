@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
                 </div>
             </div>
             <div class="navbar">
-                <div class="menu-button" tabindex=0 (click)="clickMenu(menu)">
+                <div class="menu-button" tabindex=0 (click)="clickMenu()">
                     <h3>MENU</h3>
                 </div>
             <!--
@@ -28,6 +28,7 @@ import {Router} from '@angular/router';
         <div #menu class="navmenu">
             <div tabindex=0 class="link"
                  *ngFor="let route of routeData; let i = index"
+                 routerLink="{{route.path}}"
                  routerLinkActive="active"
                  (click)="hideMenu(); goTo(route);">
                  <p>{{route.name}}</p>

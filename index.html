@@ -24,11 +24,17 @@
         <body>
           <div class="app-container fadeIn">
           <div id="loading-screen-container" class="loading-screen-container">
-              <div class="loading-screen">
-
+              <div class="loading-bg"></div>
+              <div class="logo-container">
+                  <div class="loading-screen-logo icon-simple-logo"></div>
               </div>
               <div id="spinner" class="spinner">
-                  <div class="loader-logo icon-simple-logo"></div>
+                  <!-- <div class="loader-logo icon-simple-logo"></div> -->
+                  <div class="loader-logo app-loading-mask">
+                      <div class="loading-tag">
+                          <div class="loader"></div>
+                      </div>
+                  </div>
                   <div class="icon-loading-down"></div>
               </div>
 
