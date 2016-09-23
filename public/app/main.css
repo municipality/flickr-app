@@ -959,7 +959,8 @@ photogallery {
     width: 100%;
     left: 0;
     background-color: white;
-    z-index: 2; }
+    z-index: 2;
+    padding: 0; }
   photogallery {
     position: absolute;
     width: 100%;
@@ -967,7 +968,7 @@ photogallery {
     background-color: white;
     z-index: 3; }
     photogallery .photo {
-      width: 33.333%;
+      width: 33.3%;
       height: 10em; }
       photogallery .photo img {
         margin: .1em; } }
@@ -982,7 +983,8 @@ photogallery {
     width: 100%;
     left: 0;
     background-color: white;
-    z-index: 2; }
+    z-index: 2;
+    padding: 0; }
   photogallery {
     position: absolute;
     width: 100%;
@@ -990,7 +992,7 @@ photogallery {
     background-color: white;
     z-index: 3; }
     photogallery .photo {
-      width: 33.333%;
+      width: 33.3%;
       height: 10em; }
       photogallery .photo img {
         margin: .1em; } }

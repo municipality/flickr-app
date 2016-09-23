@@ -203,6 +203,7 @@ photogallery {
         left: 0;
         background-color: white;
         z-index: 2;
+        padding: 0;
     }
 
     photogallery {
@@ -213,7 +214,7 @@ photogallery {
         z-index: 3;
 
         .photo {
-            width: 33.333%;
+            width: 33.3%;
             height: 10em;
 
             img {
