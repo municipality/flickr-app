@@ -17,7 +17,13 @@
         <script src="./systemjs.config.js"></script>
 
         <script>
-          System.import('./dist/app').catch(function(err){ console.error(err); });
+            window.addEventListener('load', function() {
+                var loadingBG = document.getElementsByClassName("loading-bg")[0];
+                var n = Math.floor(Math.random()*3) + 1;
+                loadingBG.style["background-image"] = `url("/loadingscreen/loadingscreen${n}.jpg")`;
+            });
+
+            System.import('./dist/app').catch(function(err){ console.error(err); });
         </script>
         </head>
         <!-- 3. Display the application -->

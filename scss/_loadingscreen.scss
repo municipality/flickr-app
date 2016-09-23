@@ -31,7 +31,6 @@ $logo-size: 50vh;
     top: 0;
     text-align: center;
     width: 100%;
-
     .loading-screen-logo {
         font-size: $logo-size;
         color: white;
@@ -40,13 +39,12 @@ $logo-size: 50vh;
 
 .loading-bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("http://www.easyfreepatterns.com/patterns/108/floral-fine-art-photograph-queen-a-nnes-lace-flowers-garden-spring--108937.jpg");
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
     background-size: cover;
-    background-attachment: fixed;
+    //background-attachment: fixed;
     filter: blur(6px);
 }
 
@@ -57,6 +55,7 @@ $logo-size: 50vh;
     left: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 
     &.move {
         animation-name: closeLoadingScreen;
