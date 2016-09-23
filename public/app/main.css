@@ -576,6 +576,26 @@ photogallery {
     height: 100%;
     object-fit: cover; }
 
+@media only screen and (max-device-width: 1200px) {
+  .seasons-container {
+    z-index: 1;
+    width: 100%; }
+  .events-container {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    z-index: 2; }
+  photogallery {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    z-index: 3; }
+    photogallery .photo {
+      width: 10em;
+      height: 10em; } }
+
 .blog {
   position: relative;
   padding: 0 1em;
