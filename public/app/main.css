@@ -277,44 +277,48 @@ nav {
   width: 100vw;
   height: 5em;
   z-index: 100; }
-  nav .title {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    right: 5%; }
-    nav .title .logo {
-      display: inline-block;
-      color: black;
-      vertical-align: middle;
-      font-size: 5em; }
-    nav .title .logo-text {
-      display: inline-block;
-      vertical-align: middle; }
-  nav .navbar {
-    position: relative;
-    display: inline-block;
-    left: 3em;
-    top: 50%;
-    -webkit-transform: translate(0, -50%);
-    /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-    -ms-transform: translate(0, -50%);
-    /* IE 9 */
-    transform: translate(0, -50%);
-    /* IE 10, Fx 16+, Op 12.1+ */
-    -o-transform: translate(0, -50%);
-    -moz-transform: translate(0, -50%); }
-    nav .navbar .menu-button {
-      cursor: pointer;
-      padding: 0 2em; }
-      nav .navbar .menu-button::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: red;
-        top: 50%;
-        left: 0; }
+
+.nav-title {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 5%; }
+
+.nav-title-logo {
+  display: inline-block;
+  color: black;
+  vertical-align: middle;
+  font-size: 5em; }
+
+.nav-title-logo-text {
+  display: inline-block;
+  vertical-align: middle; }
+
+.navbar {
+  position: relative;
+  display: inline-block;
+  left: 3em;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  -ms-transform: translate(0, -50%);
+  /* IE 9 */
+  transform: translate(0, -50%);
+  /* IE 10, Fx 16+, Op 12.1+ */
+  -o-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%); }
+  .navbar .menu-button {
+    cursor: pointer;
+    padding: 0 2em; }
+    .navbar .menu-button::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: red;
+      top: 50%;
+      left: 0; }
 
 .navmenu {
   position: fixed;
@@ -371,6 +375,10 @@ nav {
       right: 0;
       margin: auto;
       z-index: -1; }
+
+@media (max-width: 800px) {
+  .nav-title-logo-text {
+    display: none; } }
 
 .adventures {
   display: table;

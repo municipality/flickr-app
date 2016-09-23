@@ -6,9 +6,9 @@ import {Router} from '@angular/router';
     selector: 'headerbar',
     template: `
         <nav>
-            <div class="title">
-                <div class="logo icon-simple-logo"></div>
-                <div class="logo-text">
+            <div class="nav-title">
+                <div class="nav-title-logo icon-simple-logo"></div>
+                <div class="nav-title-logo-text">
                     <h1>Brianium</h1>
                 </div>
             </div>

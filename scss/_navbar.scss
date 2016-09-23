@@ -29,45 +29,46 @@ nav {
     width: 100vw;
     height: $headerHeight;
     z-index: 100;
-    
-    .title {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        right: 5%;
-        //font-size: $headerTitleFontSize;
-        .logo {
-            display: inline-block;
-            color: black;
-            vertical-align: middle;
-            font-size: $headerHeight;
-        }
-        .logo-text {
-            display: inline-block;
-            vertical-align: middle;
-        }
-    }
+}
 
-    .navbar {
-        position: relative;
-        //use display inline-block for width size to content
-        display: inline-block;
-        left: 3em;
-        @include center(vertical);
+.nav-title {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 5%;
+    //font-size: $headerTitleFontSize;
+}
 
-        .menu-button {
-            cursor: pointer;
-            padding: 0 2em;
-            &::after {
-                content: '';
-                position:absolute;
-                width: 100%;
-                height: 2px;
-                background-color: red;
-                top: 50%;
-                left: 0;
-            }
+.nav-title-logo {
+    display: inline-block;
+    color: black;
+    vertical-align: middle;
+    font-size: $headerHeight;
+}
+.nav-title-logo-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navbar {
+    position: relative;
+    //use display inline-block for width size to content
+    display: inline-block;
+    left: 3em;
+    @include center(vertical);
+
+    .menu-button {
+        cursor: pointer;
+        padding: 0 2em;
+        &::after {
+            content: '';
+            position:absolute;
+            width: 100%;
+            height: 2px;
+            background-color: red;
+            top: 50%;
+            left: 0;
         }
     }
 }
@@ -116,5 +117,11 @@ nav {
             margin: auto;
             z-index: -1;
         }
+    }
+}
+
+@media (max-width: 800px) {
+    .nav-title-logo-text {
+        display: none;
     }
 }
