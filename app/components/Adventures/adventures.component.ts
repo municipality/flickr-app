@@ -5,8 +5,8 @@ import {AdventuresService} from './adventures.service';
 
 @Component ({
     template : `
-        <div *ngFor="let item of photos" class="photo" tabindex="0" (click)="handleClick(item)">
-            <img src={{item.url}}>
+        <div *ngFor="let photo of photos" class="photo" tabindex="0" (click)="handleClick(item)">
+            <img src={{photo.sizes[4].source}}>
         </div>
     `,
     selector : `photogallery`
@@ -67,12 +67,12 @@ export class PhotoGallery implements OnInit {
                     <div class="loader"></div>
                 </div>
             </div>
-            <div class="header">
+            <div class="events-header">
                 <h4>Adventures</h4>
             </div>
             <div class="event" *ngFor="let event of eventsList"
             [routerLink]='["/adventures/"+season, event]'
-            routerLinkedActive="active">
+            routerLinkActive="active">
                 <div class="event-name-container">
                     <h3>{{event}}</h3>
                     <!--<h5 *ngIf="adventure.dateEnd">{{adventure.dateStart}} - {{adventure.dateEnd}}</h5>
@@ -131,13 +131,13 @@ export class Events implements OnInit, OnDestroy {
         <div class="adventures-row">
         <div class="seasons-container">
         <div class="seasons">
-            <div class="header">
+            <div class="seasons-header">
                 <h4>Seasons</h4>
             </div>
             <div class="season" *ngFor="let season of seasons"
             [routerLink]='["/adventures", season.path]'
 
-             routerLinkedActive="active">
+             routerLinkActive="active">
                 <h3>{{season.name}}</h3>
             </div>
         </div>

@@ -2,6 +2,7 @@
 $loadingHeight: 10vh;
 $transitionTime: .5s;
 $highlightDuration: 2s;
+$logo-size: 50vh;
 @keyframes closeLoadingScreen {
     0% {
         top : 0;
@@ -25,6 +26,44 @@ $highlightDuration: 2s;
     }
 }
 
+.logo-container {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    .loading-screen-logo {
+        font-size: $logo-size;
+        color: white;
+    }
+}
+
+.logo-container::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: .2em;
+    width: 75%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+}
+
+.loading-bg {
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+    background-color: rgba(200, 200, 200, .6);
+    //background-image: url("http://www.easyfreepatterns.com/patterns/108/floral-fine-art-photograph-queen-a-nnes-lace-flowers-garden-spring--108937.jpg");
+    background-size: cover;
+    background-position: center;
+    //background-attachment: fixed;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
 .loading-screen-container {
     @include transition(all, $transitionTime);
     position: relative;
@@ -32,11 +71,7 @@ $highlightDuration: 2s;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: green;
-    .loading-screen {
-        width: 100%;
-        height: 100vh - $loadingHeight;
-    }
+    overflow: hidden;
 
     &.move {
         animation-name: closeLoadingScreen;
@@ -44,29 +79,52 @@ $highlightDuration: 2s;
         -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
         animation-fill-mode: forwards;
     }
+}
 
-    .spinner {
-        position: relative;
-        width: 100%;
-        height: $loadingHeight;
-        bottom: 0;
+.spinner {
+    position: absolute;
+    width: 100%;
+    height: $loadingHeight;
+    bottom: 0;
+    left: 0;
+
+    .loader-logo {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        // top: -25%;
         left: 0;
-
-        .icon-loading-down {
-            position: relative;
-            top: 50%;
-            transform: translate(0, -50%);
-            text-align: center;
-            font-size: 10vh;
-            animation-name: highlight;
-            animation-duration: $highlightDuration;
-            animation-iteration-count: infinite;
+        right: 0;
+        margin: auto;
+        font-size: $loadingHeight;
+        text-align: center;
+        -webkit-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+        color: white;
+        &.hide {
+            display: none;
         }
+    }
 
-        &.loaded:hover {
-            cursor: pointer;
-            background-color: rgba(250, 250, 250, .1);
+    .icon-loading-down {
+        position: relative;
+        top: 50%;
+        transform: translate(0, -50%);
+        text-align: center;
+        font-size: 10vh;
+        animation-name: highlight;
+        animation-duration: $highlightDuration;
+        animation-iteration-count: infinite;
+        visibility: hidden;
+
+        &.show {
+            visibility: visible;
         }
+    }
+
+    &.loaded:hover {
+        cursor: pointer;
+        background-color: rgba(250, 250, 250, .1);
     }
 }
 

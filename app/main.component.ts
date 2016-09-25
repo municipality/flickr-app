@@ -28,17 +28,26 @@ export class MainComponent implements AfterViewInit {
     ngAfterViewInit () {
         this.loadingScreen = document.getElementsByClassName("loading-screen-container")[0];
         this.app = document.getElementsByTagName('app')[0];
-        document.getElementById('spinner').innerHTML = `
-            <div class="icon-loading-down">
-
-            </div>
-        `;
+        //Hide loading animation
+        document.getElementsByClassName('loader-logo')[0].classList.add("hide");
+        //Show down arrow
+        document.getElementsByClassName('icon-loading-down')[0].classList.add("show");
+        //Enable hover styling for load
         document.getElementById('spinner').classList.add("loaded");
+
         document.getElementById('spinner').addEventListener('click', e => {
             this.loadingScreenService.hideLoadingScreen();
         });
 
-
+        document.addEventListener("keydown", function(e) {
+            var code = e.which;
+            //User pressed enter
+            if(code === 13) {
+                if(e.target["tabIndex"] > -1) {
+                    e.target.dispatchEvent(new Event('click'));
+                }
+            }
+        });
     }
 
 

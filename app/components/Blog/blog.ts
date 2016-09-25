@@ -5,7 +5,7 @@ import {BlogService} from './blog.service';
     providers : [BlogService],
     template : `
         <div class="blog fadeIn">
-            <h1 class="header" align="center">B Log</h1>
+            <h1 class="blog-header" align="center">B Log</h1>
             <div class="entry" *ngFor="let entry of entries">
                 <div class="entry-header">
                     <h3 class="title">{{entry.title}}</h3>
@@ -25,7 +25,7 @@ export class Blog implements AfterViewInit {
     constructor (private blogService : BlogService) {
         this.blogService.getEntries()
         .subscribe( (response) => {
-            
+
             response.sort((a, b) => {
 
             });
