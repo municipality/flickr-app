@@ -32,6 +32,7 @@
     "app/components/Adventures/adventures.service.ts",
     "app/components/Blog/blog.service.ts",
     "app/components/Blog/blog.ts",
+    "app/components/Brianium/brianium.ts",
     "app/components/header.component.ts",
     "app/components/home.ts",
     "app/components/objectives.component.ts",

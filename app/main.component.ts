@@ -48,6 +48,8 @@ export class MainComponent implements AfterViewInit {
                 }
             }
         });
+
+        this.loadingScreenService.hideLoadingScreen();
     }
 
 

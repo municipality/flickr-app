@@ -528,12 +528,12 @@ textarea {
   -webkit-filter: blur(8px); }
 
 .loading-screen-container {
-  -webkit-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.8s ease-in-out;
   /* For Safari 3.1 to 6.0 */
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
   position: relative;
   top: 0;
   left: 0;
@@ -542,7 +542,7 @@ textarea {
   overflow: hidden; }
   .loading-screen-container.move {
     animation-name: closeLoadingScreen;
-    animation-duration: 0.5s;
+    animation-duration: 0.8s;
     -webkit-animation-fill-mode: forwards;
     /* Chrome, Safari, Opera */
     animation-fill-mode: forwards; }
@@ -585,12 +585,12 @@ textarea {
 
 app {
   position: relative;
-  -webkit-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.8s ease-in-out;
   /* For Safari 3.1 to 6.0 */
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out; }
+  -ms-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out; }
   app.move {
     -webkit-transform: translateY(-100vh);
     /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
@@ -609,7 +609,7 @@ app {
   .app-container.move {
     position: absolute;
     animation-name: closeLoadingScreen;
-    animation-duration: 0.5s;
+    animation-duration: 0.8s;
     -webkit-animation-fill-mode: forwards;
     /* Chrome, Safari, Opera */
     animation-fill-mode: forwards; }
@@ -660,7 +660,7 @@ nav {
   font-size: 5em; }
 
 .nav-title-logo-text {
-  display: inline-block;
+  display: none;
   vertical-align: middle; }
 
 .navbar {
@@ -1042,6 +1042,16 @@ photogallery {
 
 .words {
   padding: 0 2em 0 2em; }
+
+brianium {
+  display: block;
+  position: relative; }
+
+.brianium-video {
+  width: 100%;
+  height: 70vh;
+  min-height: 300px;
+  background-color: rgba(200, 200, 200, 0.5); }
 
 .white {
   background-color: rgba(255, 255, 255, 0.7);

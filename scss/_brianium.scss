@@ -1,0 +1,13 @@
+@import 'colors';
+
+brianium {
+    display: block;
+    position: relative;
+}
+
+.brianium-video {
+    width: 100%;
+    height: 70vh;
+    min-height: 300px;
+    background-color: $loading-color;
+}
