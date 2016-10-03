@@ -8,7 +8,7 @@ import {HttpModule, JsonpModule} from '@angular/http';
 import {AdventuresModule} from './components/Adventures/adventures.module';
 import {LoadingScreenService} from './loadingscreen.service';
 import {Brianium} from './components/brianium/brianium';
-
+import {Header} from './components/header.component';
 
 @NgModule({
     imports: [
@@ -22,7 +22,8 @@ import {Brianium} from './components/brianium/brianium';
         MainComponent,
         Home,
         Blog,
-        Brianium
+        Brianium,
+        Header
     ],
     providers: [
         appRoutingProviders,

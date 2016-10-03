@@ -640,7 +640,7 @@ headerbar h1, headerbar h2, headerbar h3, headerbar h4, headerbar h5, headerbar 
   letter-spacing: 1.3em; }
 
 nav {
-  background-color: rgba(250, 250, 250, 0.8);
+  background-color: rgba(250, 250, 250, 0.1);
   position: fixed;
   width: 100vw;
   height: 5em;
@@ -1043,15 +1043,129 @@ photogallery {
 .words {
   padding: 0 2em 0 2em; }
 
+.fadeIn {
+  animation: fadein 0.5s;
+  -moz-animation: fadein 0.5s;
+  /* Firefox */
+  -webkit-animation: fadein 0.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 0.5s;
+  /* Opera */ }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.blurIn {
+  animation: blurIn 0.5s;
+  -moz-animation: blurIn 0.5s;
+  /* Firefox */
+  -webkit-animation: blurIn 0.5s;
+  /* Safari and Chrome */
+  -o-animation: blurIn 0.5s;
+  /* Opera */ }
+
+@keyframes blurIn {
+  from {
+    -webkit-filter: blur(4px);
+    filter: blur(4px); }
+  to {
+    -webkit-filter: 0;
+    filter: 0; } }
+
+@-moz-keyframes blurIn {
+  /* Firefox */
+  from {
+    -webkit-filter: blur(4px);
+    filter: blur(4px); }
+  to {
+    -webkit-filter: 0;
+    filter: 0; } }
+
+@-webkit-keyframes blurIn {
+  /* Safari and Chrome */
+  from {
+    -webkit-filter: blur(4px);
+    filter: blur(4px); }
+  to {
+    -webkit-filter: 0;
+    filter: 0; } }
+
+@-o-keyframes blurIn {
+  /* Opera */
+  from {
+    -webkit-filter: blur(4px);
+    filter: blur(4px); }
+  to {
+    -webkit-filter: 0;
+    filter: 0; } }
+
 brianium {
+  animation: fadein 0.2s;
+  -moz-animation: fadein 0.2s;
+  /* Firefox */
+  -webkit-animation: fadein 0.2s;
+  /* Safari and Chrome */
+  -o-animation: fadein 0.2s;
+  /* Opera */
   display: block;
-  position: relative; }
+  position: relative;
+  top: -5em; }
+  brianium h1, brianium h2, brianium h3, brianium h4, brianium h5, brianium h6, brianium p {
+    margin: 0;
+    color: #3498db;
+    font-weight: 300; }
 
 .brianium-video {
   width: 100%;
-  height: 70vh;
+  height: 90vh;
   min-height: 300px;
   background-color: rgba(200, 200, 200, 0.5); }
+
+.brianium-themes {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  width: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  -ms-transform: translate(-50%, 0);
+  /* IE 9 */
+  transform: translate(-50%, 0);
+  /* IE 10, Fx 16+, Op 12.1+ */
+  -o-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0); }
+  .brianium-themes p {
+    margin: 1em;
+    font-size: 1.5em; }
 
 .white {
   background-color: rgba(255, 255, 255, 0.7);

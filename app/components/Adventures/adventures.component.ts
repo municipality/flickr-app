@@ -36,7 +36,7 @@ export class PhotoGallery implements OnInit {
                 .then(photos => {
                     this.setupPhotos(photos)
                 });
-        })
+        });
     }
     handleClick(item) {
 

@@ -5,10 +5,10 @@ import {Home} from './components/home';
 import {Brianium} from './components/brianium/brianium'
 
 const appRoutes : Routes = [
-    { path: '', component: Brianium},
+    { path: 'home', component: Brianium},
     { path: 'blog', component: Blog},
-    // { path: 'adventures', component: Adventures },
-    { path: '**', redirectTo: '/', pathMatch: 'full' }
+    { path: 'adventures', loadChildren: './components/Adventures/adventures.module' },
+    { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 export const appRoutingProviders : any[] = [];
@@ -55,7 +55,7 @@ export const SidebarRoutes : any[] = [
 export const HeaderRoutes : Object[] = [
     {
         name : "Home",
-        path : "/",
+        path : "/home",
         iconCls: ''
     },
     {
@@ -67,10 +67,5 @@ export const HeaderRoutes : Object[] = [
         name : "Blog",
         path : "/blog",
         iconCls : 'icon-blog'
-    },
-    {
-        name : "Projects",
-        path : "/projects",
-        iconCls : 'icon-github'
     }
 ];
