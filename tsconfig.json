@@ -14,11 +14,11 @@
   "exclude": [
     "node_modules",
     "typings/main",
-    "typings/main.d.ts"
+    "typings/main.d.ts",
+    "jspm_packages"
   ],
   "filesGlob": [
-    "app/**/*.ts",
-    "typings/**/*.d.ts"
+    "app/**/*.ts"
   ],
   "atom": {
     "rewriteTsconfig": true
@@ -41,10 +41,6 @@
     "app/main.component.ts",
     "app/main.ts",
     "app/mobile.service.ts",
-    "app/scrolling.service.ts",
-    "typings/browser.d.ts",
-    "typings/browser/ambient/es6-shim/es6-shim.d.ts",
-    "typings/browser/ambient/jasmine/jasmine.d.ts",
-    "typings/index.d.ts"
+    "app/scrolling.service.ts"
   ]
 }
