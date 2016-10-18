@@ -2,15 +2,16 @@
   "name": "brianium",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run bundle & node ./bin/www",
+    "start": "node ./bin/www",
     "postinstall": "npm run compile",
+    "install": "jspm install",
     "debug": "concurrently \"tsc -w\" \"node ./bin/www\" \"npm run watch-css\"",
     "build-css": "node-sass --include-path scss scss/main.scss public/app/main.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "build-mobile-css": "node-sass --include-path scss scss/mobile.scss public/app/mobile.css",
     "watch-mobile-css": "nodemon -e scss -x \"npm run build-mobile-css\"",
-    "bundle" : "jspm bundle-sfx app/main.js dist/app.js",
-    "compile" : "tsc & gulp vendor-bundle & npm run build-css & npm run build-mobile-css"
+    "bundle": "jspm bundle-sfx app/main.js dist/app.js",
+    "compile": "tsc && gulp vendor-bundle && npm run build-css && npm run build-mobile-css && npm run bundle"
   },
   "license": "ISC",
   "dependencies": {
