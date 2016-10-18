@@ -8,7 +8,7 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": false,
+    "removeComments": true,
     "noImplicitAny": false
   },
   "exclude": [
@@ -16,31 +16,5 @@
     "typings/main",
     "typings/main.d.ts",
     "jspm_packages"
-  ],
-  "filesGlob": [
-    "app/**/*.ts"
-  ],
-  "atom": {
-    "rewriteTsconfig": true
-  },
-  "files": [
-    "app/app.module.ts",
-    "app/app.routing.ts",
-    "app/components/Adventures/adventures.component.ts",
-    "app/components/Adventures/adventures.module.ts",
-    "app/components/Adventures/adventures.routing.ts",
-    "app/components/Adventures/adventures.service.ts",
-    "app/components/Blog/blog.service.ts",
-    "app/components/Blog/blog.ts",
-    "app/components/brianium/brianium.ts",
-    "app/components/header.component.ts",
-    "app/components/home.ts",
-    "app/components/objectives.component.ts",
-    "app/components/sidebar.component.ts",
-    "app/loadingscreen.service.ts",
-    "app/main.component.ts",
-    "app/main.ts",
-    "app/mobile.service.ts",
-    "app/scrolling.service.ts"
   ]
 }

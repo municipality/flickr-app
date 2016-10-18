@@ -107,6 +107,15 @@ gulp.task('vendor-bundle', function() {
   .pipe(uglify())
   .pipe(gulp.dest('./dist'));
 });
+/**
+    UGLIFYING GENERATED JAVASCRIPT BREAKS SOME FUNCTIONALITY
+    DO NOT UGLIFY
+*/
+gulp.task('minify-appjs', function(){
+    gulp.src("dist/app.js")
+        .pipe(uglify())
+        .pipe(gulp.dest("dist"));
+});
 
 
 gulp.task('bundle', ["app-bundle", "vendor-bundle"]);
