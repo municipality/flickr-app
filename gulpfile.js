@@ -112,7 +112,7 @@ gulp.task('vendor-bundle', function() {
     DO NOT UGLIFY
 */
 gulp.task('minify-appjs', function(){
-    gulp.src("dist/app.js")
+    return gulp.src("dist/app.js")
         .pipe(uglify())
         .pipe(gulp.dest("dist"));
 });
