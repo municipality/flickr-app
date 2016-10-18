@@ -2,10 +2,10 @@ import {Component, AfterViewInit} from '@angular/core';
 import {Sidebar} from './components/sidebar.component';
 import {Header} from './components/header.component';
 import {LoadingScreenService} from './loadingscreen.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app',
-    directives: [Sidebar, Header],
     template: `
         <headerbar></headerbar>
         <div class="body-container">
@@ -16,7 +16,7 @@ import {LoadingScreenService} from './loadingscreen.service';
 export class MainComponent implements AfterViewInit {
     loadingScreen : Element;
     app;
-
+    currentRoute: string;
     constructor (private loadingScreenService:LoadingScreenService) {
 
     }
@@ -48,6 +48,8 @@ export class MainComponent implements AfterViewInit {
                 }
             }
         });
+
+        this.loadingScreenService.hideLoadingScreen();
     }
 
 

@@ -5,6 +5,7 @@ import {adventuresRouting} from './adventures.routing';
 import {Events, Adventures, PhotoGallery} from './adventures.component';
 import {AdventuresService} from './adventures.service';
 
+
 @NgModule ({
     imports: [
         adventuresRouting,

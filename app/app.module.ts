@@ -7,6 +7,8 @@ import {Blog} from './components/Blog/blog';
 import {HttpModule, JsonpModule} from '@angular/http';
 import {AdventuresModule} from './components/Adventures/adventures.module';
 import {LoadingScreenService} from './loadingscreen.service';
+import {Brianium} from './components/brianium/brianium';
+import {Header} from './components/header.component';
 
 @NgModule({
     imports: [
@@ -19,7 +21,9 @@ import {LoadingScreenService} from './loadingscreen.service';
     declarations: [
         MainComponent,
         Home,
-        Blog
+        Blog,
+        Brianium,
+        Header
     ],
     providers: [
         appRoutingProviders,

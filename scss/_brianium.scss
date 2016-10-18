@@ -1,0 +1,39 @@
+@import 'colors';
+@import 'mixins';
+@import 'animate';
+brianium {
+
+    @include fadeIn(.2s);
+    display: block;
+    position: relative;
+    top: -5em;
+    h1, h2, h3, h4, h5, h6, p {
+        margin: 0;
+        color: $blue;
+        font-weight: 300;
+    }
+}
+
+.brianium-video {
+    width: 100%;
+    height: 90vh;
+    min-height: 300px;
+    background-color: $loading-color;
+}
+
+.brianium-themes {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+    @include center("horizontal");
+
+    p {
+        margin: 1em;
+        font-size: 1.5em;
+    }
+}

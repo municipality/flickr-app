@@ -2,12 +2,13 @@ import { Routes, RouterModule }   from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {Blog} from './components/Blog/blog';
 import {Home} from './components/home';
+import {Brianium} from './components/brianium/brianium'
 
 const appRoutes : Routes = [
-    { path: 'home', component: Home},
+    { path: 'home', component: Brianium},
     { path: 'blog', component: Blog},
-    // { path: 'adventures', component: Adventures },
-    { path: '', redirectTo: '/home', pathMatch: 'full' }
+    { path: 'adventures', loadChildren: './components/Adventures/adventures.module' },
+    { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 export const appRoutingProviders : any[] = [];
@@ -66,10 +67,5 @@ export const HeaderRoutes : Object[] = [
         name : "Blog",
         path : "/blog",
         iconCls : 'icon-blog'
-    },
-    {
-        name : "Projects",
-        path : "/projects",
-        iconCls : 'icon-github'
     }
 ];
