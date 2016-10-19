@@ -1,5 +1,4 @@
 import {Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
-import {SeasonsVar} from './adventures.routing';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AdventuresService} from './adventures.service';
 
@@ -154,8 +153,12 @@ export class Adventures {
 
     seasons : Object[];
 
-    constructor (private router:Router) {
-        this.seasons = SeasonsVar;
+    constructor (private router:Router, private adventuresService: AdventuresService) {
+        var that = this;
+        this.seasons = [];
+        this.adventuresService.getSeasons().then(function(response) {
+            that.seasons = response;
+        });
     }
 
     onSelect (season) {
