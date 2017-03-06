@@ -8,6 +8,8 @@ export class AdventuresService {
     photoCache : Object;
     currentSeason : string;
     seasons : any[];
+    fullscreenMask : HTMLElement;
+    fullscreenPhoto: HTMLImageElement;
     constructor (private http:Http) {
         this.photoCache = {};
     }
@@ -126,33 +128,60 @@ export class AdventuresService {
                         season = season.substring(0, season.length - 4) + " " + Number(season.substring(season.length - 4));
                         map[season] = true;
                     });
+                    var seasons = {
+                        Winter : 0,
+                        Spring: 1,
+                        Summer : 2,
+                        Fall : 3
+                    }
                     this.seasons = Object.keys(map).sort((a, b) => {
-                        var seasons = {
-                            Winter : 0,
-                            Spring: 1,
-                            Summer : 2,
-                            Fall : 3
-                        }
                         var [a1, a2] : any[] = a.split(" ");
                         var [b1, b2] : any[] = b.split(" ");
                         a2 = Number(a2);
                         b2 = Number(b2);
 
+                        //Sort seasons in descending order
                         if(a2 != b2) {
-                            return a2 - b2;
+                            return b2 - a2;
                         }
                         return seasons[a1] - seasons[b1];
                     });
 
+                    //Format each season string text
                     this.seasons.forEach((val, index, arr) => {
                         arr[index] = {
                             path : val.split(" ").join(""),
                             name : val
                         };
                     });
+
+
                     return this.seasons;
                 }
         }).toPromise();
 
+    }
+
+    //Sets up div components to be able to alter
+    //mask, photo are HTMLElements
+    setupFullscreenComponents(mask, photo) {
+        this.fullscreenMask = mask.nativeElement;
+        this.fullscreenPhoto = photo.nativeElement;
+    }
+
+    setFullscreenPhoto(photo) {
+        //Get URL of original photo
+        var url;
+        photo.sizes.map(function(x){
+            if(x.label === 'Large') {
+                url = x.source;
+            }
+        })
+        this.fullscreenMask.classList.remove('hidden');
+        this.fullscreenPhoto.src = url;
+    }
+
+    hideMask() {
+        this.fullscreenMask.classList.add('hidden');
     }
 }

@@ -5,10 +5,10 @@ import {Home} from './components/home';
 import {Brianium} from './components/brianium/brianium'
 
 const appRoutes : Routes = [
-    { path: 'home', component: Brianium},
-    { path: 'blog', component: Blog},
+    // { path: 'home', component: Brianium},
+    // { path: 'blog', component: Blog},
     { path: 'adventures', loadChildren: './components/Adventures/adventures.module' },
-    { path: '**', redirectTo: '/home', pathMatch: 'full' }
+    { path: '**', redirectTo: '/adventures', pathMatch: 'full' }
 ];
 
 export const appRoutingProviders : any[] = [];

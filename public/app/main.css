@@ -951,6 +951,22 @@ photogallery {
     height: 100%;
     object-fit: cover; }
 
+.adventures-fullscreen {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9); }
+
+.adventures-fullscreen-photo {
+  max-height: 80vh;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
 @media only screen and (max-device-width: 1200px) {
   .seasons-container {
     z-index: 1;
@@ -1166,6 +1182,9 @@ brianium {
   .brianium-themes p {
     margin: 1em;
     font-size: 1.5em; }
+
+.hidden {
+  display: none; }
 
 .white {
   background-color: rgba(255, 255, 255, 0.7);
