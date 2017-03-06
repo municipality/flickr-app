@@ -7,6 +7,7 @@ export class AdventuresService {
     albumList : Object[];
     photoCache : Object;
     currentSeason : string;
+    seasons : any[];
     constructor (private http:Http) {
         this.photoCache = {};
     }
@@ -109,5 +110,49 @@ export class AdventuresService {
                    }
 
                }).toPromise();
+    }
+
+    getSeasons() {
+        let url = document.location.origin + `/api/getseasonalbums`;
+
+        return this.http.get(url).map((response) => {
+                if(response.status === 200) {
+                    let map = {};
+                    let res = response.json();
+                    res = res.photosets.photoset;
+                    res.forEach((val, index, arr) => {
+                        var albumName = val["title"]["_content"];
+                        var season = albumName.substring(1, albumName.indexOf("]"));
+                        season = season.substring(0, season.length - 4) + " " + Number(season.substring(season.length - 4));
+                        map[season] = true;
+                    });
+                    this.seasons = Object.keys(map).sort((a, b) => {
+                        var seasons = {
+                            Winter : 0,
+                            Spring: 1,
+                            Summer : 2,
+                            Fall : 3
+                        }
+                        var [a1, a2] : any[] = a.split(" ");
+                        var [b1, b2] : any[] = b.split(" ");
+                        a2 = Number(a2);
+                        b2 = Number(b2);
+
+                        if(a2 != b2) {
+                            return a2 - b2;
+                        }
+                        return seasons[a1] - seasons[b1];
+                    });
+
+                    this.seasons.forEach((val, index, arr) => {
+                        arr[index] = {
+                            path : val.split(" ").join(""),
+                            name : val
+                        };
+                    });
+                    return this.seasons;
+                }
+        }).toPromise();
+
     }
 }

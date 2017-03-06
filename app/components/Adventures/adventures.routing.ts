@@ -26,13 +26,13 @@ const adventuresRoutes: Routes = [
 
 export const adventuresRouting: ModuleWithProviders = RouterModule.forChild(adventuresRoutes);
 
-export const SeasonsVar : Object[] = [{
-    path : 'Summer2016',
-    name : 'Summer 2016'
-},{
-    path: 'Fall2016',
-    name: 'Fall 2016'
-},{
-    path : 'Winter2017',
-    name : 'Winter 2017'
-}];
+// export const SeasonsVar : Object[] = [{
+//     path : 'Summer2016',
+//     name : 'Summer 2016'
+// },{
+//     path: 'Fall2016',
+//     name: 'Fall 2016'
+// },{
+//     path : 'Winter2017',
+//     name : 'Winter 2017'
+// }];
