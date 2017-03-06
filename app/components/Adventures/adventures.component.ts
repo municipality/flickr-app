@@ -4,7 +4,7 @@ import {AdventuresService} from './adventures.service';
 
 @Component ({
     template : `
-        <div *ngFor="let photo of photos" class="photo" tabindex="0" (click)="handleClick(item)">
+        <div *ngFor="let photo of photos" class="photo" (click)="handleClick(photo)">
             <img src={{photo.sizes[4].source}}>
         </div>
     `,
@@ -33,12 +33,12 @@ export class PhotoGallery implements OnInit {
                     return this.adventuresService.getPhotos(this.album);
                 })
                 .then(photos => {
-                    this.setupPhotos(photos)
+                    this.setupPhotos(photos);
                 });
         });
     }
-    handleClick(item) {
-
+    handleClick(photo) {
+        this.adventuresService.setFullscreenPhoto(photo);
     }
 
     //Set photos[i].url to image url
@@ -126,6 +126,9 @@ export class Events implements OnInit, OnDestroy {
 @Component({
     selector: 'adventures',
     template: `
+    <div #fullscreen class="adventures-fullscreen hidden" (click)="onMaskClick()">
+        <img #fullscreenphoto class="adventures-fullscreen-photo"/>
+    </div>
     <div class="adventures fadeIn">
         <div class="adventures-row">
         <div class="seasons-container">
@@ -149,16 +152,28 @@ export class Events implements OnInit, OnDestroy {
     </div>
     `
 })
-export class Adventures {
+export class Adventures implements OnInit {
 
     seasons : Object[];
-
+    @ViewChild('fullscreen') mask;
+    @ViewChild('fullscreenphoto') photo;
     constructor (private router:Router, private adventuresService: AdventuresService) {
         var that = this;
         this.seasons = [];
         this.adventuresService.getSeasons().then(function(response) {
             that.seasons = response;
         });
+
+    }
+
+    ngOnInit() {
+        this.adventuresService.setupFullscreenComponents(this.mask, this.photo);
+    }
+
+    //onMaskClick
+    //On fullscreen mask click, hide mask
+    onMaskClick() {
+        this.adventuresService.hideMask();
     }
 
     onSelect (season) {
