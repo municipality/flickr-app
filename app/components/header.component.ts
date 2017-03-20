@@ -13,8 +13,9 @@ import {Router} from '@angular/router';
                 </div>
             </div>
             <div class="navbar">
-                <div class="menu-button" tabindex=0 (click)="clickMenu()">
-                    <h3>MENU</h3>
+                <!--<div class="menu-button" tabindex=0 (click)="clickMenu()">-->
+                <div class="menu-button">
+                    <h3>BRIANIUM</h3>
                 </div>
             <!--
                 <div tabindex=0 class="link"
