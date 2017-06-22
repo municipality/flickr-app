@@ -122,18 +122,21 @@ export class AdventuresService {
                     let map = {};
                     let res = response.json();
                     res = res.photosets.photoset;
-                    res.forEach((val, index, arr) => {
-                        var albumName = val["title"]["_content"];
-                        var season = albumName.substring(1, albumName.indexOf("]"));
-                        season = season.substring(0, season.length - 4) + " " + Number(season.substring(season.length - 4));
-                        map[season] = true;
-                    });
                     var seasons = {
                         Winter : 0,
                         Spring: 1,
                         Summer : 2,
                         Fall : 3
                     }
+                    res.forEach((val, index, arr) => {
+                        var albumName = val["title"]["_content"];
+                        var season = albumName.substring(1, albumName.indexOf("]"));
+                        var check = season.substring(0, season.length - 4);
+                        if(seasons[check] != null) {
+                          season = season.substring(0, season.length - 4) + " " + Number(season.substring(season.length - 4));
+                          map[season] = true;
+                        }
+                    });
                     this.seasons = Object.keys(map).sort((a, b) => {
                         var [a1, a2] : any[] = a.split(" ");
                         var [b1, b2] : any[] = b.split(" ");
