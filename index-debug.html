@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Brianium</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://file.myfontastic.com/U99wiG9NDEQzGym6VKtJxa/icons.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/app/main.css" />
+        <!-- <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1200px)" href="/app/mobile.css" /> -->
+        <base href="/">
+        <!-- 1. Load libraries -->
+         <!-- Polyfill(s) for older browsers -->
+        <!-- <script src="node_modules/core-js/client/shim.min.js"></script>
+        <script src="node_modules/zone.js/dist/zone.js"></script>
+        <script src="node_modules/reflect-metadata/Reflect.js"></script>
+        <script src="node_modules/systemjs/dist/system.src.js"></script>-->
+        <script src="dist/vendors.min.js"></script>
+        <!-- 2. Configure SystemJS -->
+        <script src="jspm_packages/system.js"></script>
+        <script src="systemjs.config.js"></script>
+
+        <script>
+            window.addEventListener('load', function() {
+                var loadingBG = document.getElementsByClassName("loading-bg")[0];
+                var n = Math.floor(Math.random()*4) + 1;
+                loadingBG.style["background-image"] = `url("/loadingscreen/loadingscreen${n}.jpg")`;
+            });
+
+            //Comment out for production
+              System.import('dist/app/main.js').catch(function(err){ console.error(err); });
+        </script>
+        </head>
+        <!-- 3. Display the application -->
+        <body>
+          <div class="app-container fadeIn">
+          <div id="loading-screen-container" class="loading-screen-container">
+              <div class="loading-bg"></div>
+              <div class="logo-container">
+                  <div class="loading-screen-logo icon-simple-logo"></div>
+              </div>
+              <div id="spinner" class="spinner">
+                  <!-- <div class="loader-logo icon-simple-logo"></div> -->
+                  <div class="loader-logo app-loading-mask">
+                      <div class="loading-tag">
+                          <div class="loader"></div>
+                      </div>
+                  </div>
+                  <div class="icon-loading-down"></div>
+              </div>
+
+          </div>
+
+          <app></app>
+          </div>
+          <!--  Put in for production-->
+          <!-- <script src="dist/app.js"></script> -->
+    </body>
+</html>

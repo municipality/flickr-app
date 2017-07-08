@@ -147,7 +147,7 @@ export class AdventuresService {
                         if(a2 != b2) {
                             return b2 - a2;
                         }
-                        return seasons[a1] - seasons[b1];
+                        return seasons[b1] - seasons[a1];
                     });
 
                     //Format each season string text
