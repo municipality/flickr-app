@@ -181,7 +181,7 @@ export class AdventuresService {
             }
         })
         this.fullscreenMask.classList.remove('hidden');
-        this.fullscreenPhoto.src = url;
+        this.fullscreenMask.style['background-image'] = "url('"+ url + "')";
     }
 
     hideMask() {
